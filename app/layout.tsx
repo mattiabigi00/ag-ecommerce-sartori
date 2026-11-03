@@ -1,11 +1,14 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { MetaPixel } from '@/components/analytics/meta-pixel'
+import { TrackingCapture } from '@/components/funnel/tracking-capture'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Ecommerce AG',
+  description: 'Funnel ecommerce AG',
   generator: 'v0.app',
+  robots: { index: false, follow: false },
   icons: {
     icon: [
       {
@@ -39,8 +42,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="it">
       <body className="antialiased">
+        <TrackingCapture />
+        <MetaPixel />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

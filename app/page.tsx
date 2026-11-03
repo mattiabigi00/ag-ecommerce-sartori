@@ -1,47 +1,23 @@
-export default function Page() {
+import Link from 'next/link'
+import { FUNNELS } from '@/lib/funnels'
+
+export default function IndexPage() {
   return (
-    <main
-      style={{
-        colorScheme: 'light dark',
-        position: 'relative',
-        display: 'flex',
-        minHeight: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'light-dark(#fff, #000)',
-        color: 'light-dark(#000, #fff)',
-      }}
-    >
-      <svg
-        aria-hidden="true"
-        style={{ width: 80, height: 80 }}
-        width={80}
-        height={80}
-        fill="none"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      >
-        <path
-          d="M14.2 14.2H17V6.9375C17 4.76288 15.2371 3 13.0625 3H5.8V5.8M14.2 14.2V7.79063L7.79062 14.2H14.2ZM14.2 14.2V17H6.9375C4.76288 17 3 15.2371 3 13.0625V5.8H5.8M5.8 5.8V12.2313L12.2313 5.8H5.8Z"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <p
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: 'calc(50% + 56px)',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: 'light-dark(#71717a, #a1a1aa)',
-        }}
-      >
-        Your v0 generation will show here.
-      </p>
+    <main className="mx-auto flex min-h-screen w-full max-w-xl flex-col justify-center gap-6 px-4 py-12">
+      <h1 className="text-2xl font-semibold">Funnel ecommerce AG</h1>
+      <ul className="flex flex-col gap-3">
+        {Object.values(FUNNELS).map((funnel) => (
+          <li key={funnel.id}>
+            <Link
+              href={funnel.path}
+              className="flex flex-col gap-1 rounded-lg border border-border p-4 transition-colors hover:bg-muted"
+            >
+              <span className="font-medium">{funnel.label}</span>
+              <span className="text-sm text-muted-foreground">{funnel.path}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </main>
   )
 }
