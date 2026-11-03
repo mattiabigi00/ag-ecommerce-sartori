@@ -1,25 +1,33 @@
-import { ApplicationForm } from '@/components/funnel/application-form'
-import { VslSection } from '@/components/funnel/vsl-section'
-import { VSL_SOURCES } from '@/lib/funnels'
+import type { Metadata } from 'next'
+import { ApplicationSection } from '@/components/landing/application-section'
+import { Hero } from '@/components/landing/hero'
+import { Letter } from '@/components/landing/letter'
+import { Program } from '@/components/landing/program'
+import { Accreditation, Counters } from '@/components/landing/proof-bar'
+import { Results } from '@/components/landing/results'
+import { Reviews } from '@/components/landing/reviews'
+import { SiteFooter } from '@/components/landing/site-footer'
+import { Stories } from '@/components/landing/stories'
+
+export const metadata: Metadata = {
+  title: 'Il tuo secondo stipendio con un e-commerce, la sera | Alex Grassi',
+  description:
+    'Guarda la lezione gratuita: i 3 passi per costruire un e-commerce la sera, partendo da un lavoro dipendente. Candidati alla chiamata gratuita.',
+}
 
 export default function Funnel1Page() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-10 px-4 py-12">
-      <header className="flex flex-col gap-3 text-center">
-        <h1 className="text-balance text-3xl font-semibold md:text-4xl">
-          Titolo landing funnel 1
-        </h1>
-        <p className="text-pretty text-muted-foreground">Sottotitolo della landing.</p>
-      </header>
-
-      <VslSection funnel="funnel-1" {...VSL_SOURCES['funnel-1']} unlockAfterSeconds={0}>
-        <section aria-labelledby="candidatura" className="flex flex-col gap-6">
-          <h2 id="candidatura" className="text-2xl font-semibold">
-            Candidati
-          </h2>
-          <ApplicationForm funnel="funnel-1" />
-        </section>
-      </VslSection>
+    <main>
+      <Hero />
+      <Accreditation />
+      <Counters />
+      <Stories />
+      <Letter />
+      <Results />
+      <Reviews />
+      <Program />
+      <ApplicationSection />
+      <SiteFooter />
     </main>
   )
 }

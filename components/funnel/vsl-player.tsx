@@ -162,13 +162,13 @@ function Placeholder({
   return (
     <div
       className={cn(
-        'flex aspect-video w-full flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-border bg-muted/40 p-6 text-center',
-        className,
-      )}
-    >
-      <p className="text-sm text-muted-foreground">Video VSL non ancora caricato</p>
-      {process.env.NODE_ENV !== 'production' && (
-        <Button type="button" variant="outline" onClick={() => onProgress(unlockAfterSeconds)}>
+  'flex aspect-video w-full flex-col items-center justify-center gap-4 rounded-xl bg-navy p-6 text-center text-white',
+  className,
+  )}
+  >
+  <p className="text-base font-semibold text-white/80">Video VSL non ancora caricato</p>
+  {process.env.NODE_ENV !== 'production' && (
+  <Button type="button" variant="secondary" onClick={() => onProgress(unlockAfterSeconds)}>
           Simula lo sblocco (solo test)
         </Button>
       )}

@@ -161,3 +161,33 @@
     @apply bg-background text-foreground;
   }
 }
+
+@theme inline {
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+  --font-display: var(--font-anton), 'Impact', sans-serif;
+  --color-ink: #0b0f19;
+  --color-ink-soft: #2a3142;
+  --color-navy: #1a1f33;
+  --color-sky: #3b9bff;
+  --color-sky-pale: #eaf3ff;
+  --color-go: #2fd152;
+  --color-go-strong: #25b845;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.marker {
+  background: var(--color-sky);
+  color: #000;
+  padding: 0 0.18em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

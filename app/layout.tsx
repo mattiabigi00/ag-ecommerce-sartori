@@ -2,7 +2,15 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { MetaPixel } from '@/components/analytics/meta-pixel'
 import { TrackingCapture } from '@/components/funnel/tracking-capture'
+import { Anton, Montserrat } from 'next/font/google'
 import './globals.css'
+
+const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-anton', display: 'swap' })
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Ecommerce AG',
@@ -29,11 +37,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#000000',
 }
 
 export default function RootLayout({
@@ -42,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="it">
-      <body className="antialiased">
+    <html lang="it" className={`light ${anton.variable} ${montserrat.variable}`}>
+      <body className="font-sans antialiased">
         <TrackingCapture />
         <MetaPixel />
         {children}
