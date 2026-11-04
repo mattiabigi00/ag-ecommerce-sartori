@@ -96,6 +96,7 @@ export type VideoResult = {
   result: string
   wistiaId: string
   thumbnail: string
+  avatar?: string
 }
 
 export const VIDEO_RESULTS: VideoResult[] = [
@@ -108,6 +109,7 @@ export const VIDEO_RESULTS: VideoResult[] = [
     result: "€15'000 al mese",
     wistiaId: 'fvg1folj0c',
     thumbnail: '/images/landing/video-tripodi.webp',
+    avatar: '/images/landing/avatar-tripodi.webp',
   },
   {
     title: 'Me lo sentivo: dovevo farcela. E così è stato.',
@@ -118,6 +120,7 @@ export const VIDEO_RESULTS: VideoResult[] = [
     result: '€1200 al giorno',
     wistiaId: '0dkkx7sqwa',
     thumbnail: '/images/landing/video-pastori.webp',
+    avatar: '/images/landing/avatar-pastori.webp',
   },
   {
     title: 'Siamo partiti TOTALMENTE da zero!',
@@ -128,6 +131,7 @@ export const VIDEO_RESULTS: VideoResult[] = [
     result: "€15'000 al mese",
     wistiaId: 'j67n1u9d6a',
     thumbnail: '/images/landing/video-tassi.webp',
+    avatar: '/images/landing/avatar-tassi.webp',
   },
   {
     title: "L'e-commerce ha cambiato tutto",
@@ -148,6 +152,7 @@ export const VIDEO_RESULTS: VideoResult[] = [
     result: '€6000 al mese',
     wistiaId: 'i9i0shw1ml',
     thumbnail: '/images/landing/video-fichera.webp',
+    avatar: '/images/landing/avatar-fichera.webp',
   },
   {
     title: 'Questa è una vera professione alto pagata!',

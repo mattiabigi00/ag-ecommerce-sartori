@@ -1,8 +1,7 @@
-import { Check } from 'lucide-react'
 import { VIDEO_RESULTS } from '@/lib/landing/funnel-1-content'
 import { CtaBlock } from './cta-block'
 import { SectionTitle } from './ui-bits'
-import { WistiaVideo } from './wistia-video'
+import { VideoResultCard } from './video-result-card'
 
 export function Results() {
   return (
@@ -16,25 +15,7 @@ export function Results() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {VIDEO_RESULTS.map((video) => (
-            <article
-              key={video.wistiaId}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/10"
-            >
-              <WistiaVideo wistiaId={video.wistiaId} thumbnail={video.thumbnail} title={video.title} />
-              <div className="flex flex-1 flex-col gap-3 p-6">
-                <h3 className="text-balance text-xl font-extrabold leading-snug text-ink">
-                  &ldquo;{video.title}&rdquo;
-                </h3>
-                <p className="text-[16px] leading-relaxed text-ink-soft">&ldquo;{video.quote}&rdquo;</p>
-                <p className="mt-auto text-[15px] font-semibold leading-snug text-ink">
-                  {video.name}, {video.role}
-                </p>
-                <p className="flex items-start gap-2 rounded-lg bg-sky-pale px-3 py-2.5 text-[15px] font-bold leading-snug text-ink">
-                  <Check aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-go-strong" strokeWidth={3} />
-                  {video.result}
-                </p>
-              </div>
-            </article>
+            <VideoResultCard key={video.wistiaId} video={video} />
           ))}
         </div>
 

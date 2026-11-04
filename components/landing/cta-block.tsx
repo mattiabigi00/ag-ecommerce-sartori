@@ -61,7 +61,7 @@ export function StepsList({ className }: { className?: string }) {
 export function CtaButton({
   position,
   className,
-  href = '#candidatura',
+  href = '#modulo-candidatura',
   label = CTA_LABEL,
   funnel = 'funnel-1',
 }: {

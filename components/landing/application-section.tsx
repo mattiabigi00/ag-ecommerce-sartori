@@ -68,7 +68,7 @@ export function ApplicationSection() {
           </div>
         </div>
 
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6">
+        <div id="modulo-candidatura" className="mx-auto flex w-full max-w-3xl scroll-mt-4 flex-col items-center gap-6">
           <SeatsTimer />
           <div className="w-full rounded-3xl bg-white p-5 text-ink shadow-2xl sm:p-8">
             <ApplicationForm funnel="funnel-1" redirectTo={FUNNELS['funnel-1'].thankYouPath} />

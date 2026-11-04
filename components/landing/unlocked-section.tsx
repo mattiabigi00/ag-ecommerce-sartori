@@ -1,23 +1,20 @@
 import { Check } from 'lucide-react'
 import { ApplicationForm } from '@/components/funnel/application-form'
 import { FUNNELS, type FunnelId } from '@/lib/funnels'
-import {
-  FEATURED_STORIES,
-  MORE_STORIES,
-  UNLOCK_CTA_LABEL,
-  UNLOCK_CTA_NOTE,
-} from '@/lib/landing/unlocked-content'
+import { VIDEO_RESULTS } from '@/lib/landing/funnel-1-content'
+import { MORE_STORIES, UNLOCK_CTA_LABEL, UNLOCK_CTA_NOTE } from '@/lib/landing/unlocked-content'
 import { GuaranteeNote, CtaButton, SeatsTimer } from './cta-block'
 import { Accreditation } from './proof-bar'
 import { Reviews } from './reviews'
 import { Initial, SectionTitle, Underline } from './ui-bits'
+import { VideoResultCard } from './video-result-card'
 
 function CtaCard({ funnel, position, title }: { funnel: FunnelId; position: string; title?: string }) {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5 rounded-3xl bg-black p-6 text-center text-white shadow-xl md:p-10">
       {title && <p className="text-balance font-display text-2xl uppercase leading-tight md:text-3xl">{title}</p>}
       <div className="w-full max-w-[680px]">
-        <CtaButton position={position} funnel={funnel} href="#survey" label={UNLOCK_CTA_LABEL} />
+        <CtaButton position={position} funnel={funnel} href="#modulo-survey" label={UNLOCK_CTA_LABEL} />
       </div>
       <p className="text-[15px] text-white/80">{UNLOCK_CTA_NOTE}</p>
     </div>
@@ -48,7 +45,7 @@ export function UnlockedSection({
             Rispondi a qualche domanda. Se il tuo profilo è in linea, un consulente ti chiama entro 24 ore.
           </p>
           <div className="w-full max-w-[680px]">
-            <CtaButton position="unlocked-top" funnel={funnel} href="#survey" label={UNLOCK_CTA_LABEL} />
+            <CtaButton position="unlocked-top" funnel={funnel} href="#modulo-survey" label={UNLOCK_CTA_LABEL} />
           </div>
           <p className="text-[15px] text-white/80">{UNLOCK_CTA_NOTE}</p>
         </div>
@@ -72,37 +69,9 @@ export function UnlockedSection({
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {FEATURED_STORIES.map((story) => (
-              <article
-                key={story.name}
-                className="flex flex-col gap-5 rounded-2xl border border-black/10 bg-white p-6 shadow-sm"
-              >
-                <div className="flex items-center gap-4">
-                  <Initial name={story.name} className="size-14 text-2xl" />
-                  <div>
-                    <h3 className="text-xl font-extrabold leading-tight text-ink">{story.name}</h3>
-                    <p className="text-[15px] leading-snug text-ink-soft">{story.role}</p>
-                  </div>
-                </div>
-                <div className="grid gap-3">
-                  <p className="rounded-xl bg-neutral-100 px-4 py-3 text-[16px] leading-snug text-ink">
-                    <span className="mb-1 block text-xs font-extrabold uppercase tracking-[0.12em] text-neutral-600">
-                      Prima
-                    </span>
-                    {story.before}
-                  </p>
-                  <p className="rounded-xl bg-emerald-50 px-4 py-3 text-[16px] font-bold leading-snug text-emerald-900">
-                    <span className="mb-1 block text-xs font-extrabold uppercase tracking-[0.12em] text-emerald-800">
-                      Dopo
-                    </span>
-                    {story.after}
-                  </p>
-                </div>
-                <p className="mt-auto text-[17px] italic leading-relaxed text-ink-soft">
-                  &ldquo;{story.quote}&rdquo;
-                </p>
-              </article>
+          <div className="grid gap-6 md:grid-cols-2">
+            {VIDEO_RESULTS.map((video) => (
+              <VideoResultCard key={video.wistiaId} video={video} showAvatar />
             ))}
           </div>
 
@@ -161,12 +130,14 @@ export function UnlockedSection({
               Rispondi a qualche domanda. Se il tuo profilo è in linea, un consulente ti chiama entro 24 ore.
             </p>
           </div>
-          <SeatsTimer />
-          <div className="w-full rounded-3xl bg-white p-5 text-ink shadow-2xl sm:p-8">
-            <ApplicationForm
-              funnel={funnel}
-              mode={funnel === 'funnel-2' ? 'survey' : 'full'}
-              redirectTo={FUNNELS[funnel].thankYouPath} />
+          <div id="modulo-survey" className="flex w-full scroll-mt-4 flex-col items-center gap-8">
+            <SeatsTimer />
+            <div className="w-full rounded-3xl bg-white p-5 text-ink shadow-2xl sm:p-8">
+              <ApplicationForm
+                funnel={funnel}
+                mode={funnel === 'funnel-2' ? 'survey' : 'full'}
+                redirectTo={FUNNELS[funnel].thankYouPath} />
+            </div>
           </div>
           <GuaranteeNote className="max-w-[680px]" />
           <p className="max-w-xl text-center text-[15px] leading-relaxed text-white/75">
