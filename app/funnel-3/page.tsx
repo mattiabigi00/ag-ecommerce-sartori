@@ -23,7 +23,7 @@ export default function Funnel3Page() {
               <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
                 Per chi ha un lavoro e vuole uno stipendio in più
               </p>
-              <h1 className="text-balance font-display text-[clamp(1.55rem,5.8vw,3.8rem)] uppercase leading-[1.1]">
+              <h1 className="text-balance font-display text-[clamp(1.55rem,6vw,3.9rem)] uppercase leading-[1.32] tracking-[0.005em]">
                 <span className="marker">10.000 euro in un giorno</span>, con un negozio online costruito la
                 sera
               </h1>
