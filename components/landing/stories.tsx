@@ -24,8 +24,8 @@ export function Stories() {
                 <Image
                   src={story.image}
                   alt={`Foto di ${story.name}`}
-                  width={96}
-                  height={96}
+                  width={400}
+                  height={400}
                   className="size-24 rounded-full object-cover"
                 />
               ) : (

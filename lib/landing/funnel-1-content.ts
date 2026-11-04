@@ -31,33 +31,40 @@ export type Story = {
 
 export const STORIES: Story[] = [
   {
-    name: 'Francesco Grillo',
-    role: 'tornitore in fabbrica, 2 figli',
-    title: 'Mentre lavoro, ho avuto la vendita!',
-    quote: 'Mentre lavoro, ho avuto la vendita, mentre lavoro, cioè, è stato incredibile.',
-    result: '500-600 € di vendite il primo giorno di test',
-  },
-  {
-    name: "Raffaele D'Avino",
-    role: 'dipendente, 5 figli',
-    title: "Lo store l'ho costruito col telefonino",
+    name: 'Giacomo e Cristina Tassi',
+    role: 'sposati, due figli',
+    title: 'Siamo partiti proprio da zero!',
     quote:
-      "Io non avevo tempo, cioè io ho lavorato dalle undici di sera alle due di notte, lo store l'ho costruito col telefonino.",
-    result: '€1600 di vendite in 10 giorni',
+      'Assolutamente, partiti totalmente da zero. Però ci abbiamo creduto e non ci siamo mai fermati, ed è lì che fa la differenza.',
+    result: "€15'000 al mese",
+    image: '/images/landing/avatar-tassi.webp',
   },
   {
-    name: 'Pietro Lanzo',
-    role: "responsabile d'officina, 3 figli",
-    title: 'Ti amo tantissimo',
-    quote: 'Le parole di sua figlia di 4 anni: "Io ti amo tantissimo…"',
-    result: '€1700 di vendite in 24 ore',
+    name: 'Alessandro Fichera',
+    role: 'carrozziere, 3 figli maschi',
+    title: 'Non pensavo fosse possibile!',
+    quote:
+      'Ho lanciato 3 store all\'inizio, senza grandi risultati, ma col quarto... è cambiato tutto. Ora sono sui €6000 netti al mese!',
+    result: '€6000 netti al mese',
+    image: '/images/landing/avatar-fichera.webp',
   },
   {
-    name: 'Antonio Vitelli',
-    role: 'manutentore a turni, 2 figli',
-    title: 'Ti mostrano i loro sogni',
-    quote: 'Nel momento in cui ti guardano negli occhi e ti mostrano i loro sogni…',
-    result: 'circa €3000 di vendite (102 ordini)',
+    name: 'Michele, Ugo e Salvatore Tripodi',
+    role: 'studenti',
+    title: 'Oggi €500 in metà giornata!',
+    quote:
+      'Ieri €400 di incassi, oggi già €500 e siamo a metà giornata! E da qui, lo sappiamo bene, si può solo migliorare...',
+    result: "€15'000 al mese",
+    image: '/images/landing/avatar-tripodi.webp',
+  },
+  {
+    name: 'Giovanni Pastori',
+    role: 'salumiere, sposato e con una figlia',
+    title: "Me lo sentivo che ce l'avrei fatta",
+    quote:
+      'Non voglio diventare ricco, voglio essere libero. Lavorare dove e quando voglio. Grazie a questo percorso, lo sto facendo.',
+    result: '€1200 al giorno',
+    image: '/images/landing/avatar-pastori.webp',
   },
 ]
 
@@ -77,112 +84,95 @@ export const METHOD_STEPS = [
 ]
 
 export type VideoResult = {
+  title: string
+  quote: string
   name: string
   role: string
-  before: string
-  after: string
-  quote: string
-  videoUrl?: string
+  result: string
+  wistiaId: string
+  thumbnail: string
 }
 
 export const VIDEO_RESULTS: VideoResult[] = [
-  {
-    name: 'Yann Bezushko',
-    role: 'Autista e corriere, 50 anni',
-    before: '6 anni con altre agenzie, 17 vendite in quasi 2 anni',
-    after: '2.240 € di vendite in 7 giorni (42 ordini)',
-    quote: '…in sei anni la prima volta arrivo a un passo successivo…',
-  },
-  {
-    name: 'Jonathan Foscoli',
-    role: 'Operaio, da quando ha finito la scuola',
-    before: '1.300-1.500 € al mese, nessuna fiducia in sé',
-    after: '300-400 € al giorno di vendite in meno di un mese',
-    quote: '…stiamo viaggiando su quei tre quattrocento euro diciamo al giorno mediamente.',
-  },
-  {
-    name: 'Manuel Furlan',
-    role: 'Operaio metalmeccanico, 9 ore al giorno',
-    before: 'a 31 anni, chiedere il permesso per fare le sue cose',
-    after: '14.000 € di vendite in 3 mesi',
-    quote: '…a 31 anni chiedo il permesso per fare le mie cose, sinceramente sarei anche stanco.',
-  },
-]
-
-export type QuoteResult = { title: string; quote: string; name: string; result: string }
-
-export const QUOTE_RESULTS: QuoteResult[] = [
-  {
-    title: 'Volevo essere libero',
-    quote:
-      'Io non volevo diventare ricco, io volevo essere libero. Lavorare dove voglio, quando voglio. E con questo percorso sto iniziando a farlo.',
-    name: 'Giovanni Pastori, salumiere, sposato e con una figlia',
-    result: '€1200 al giorno',
-  },
-  {
-    title: 'Siamo partiti totalmente da zero',
-    quote:
-      'Assolutamente, totalmente da zero. Non avevamo fatto niente di simile all\'e-commerce. Però ci abbiamo creduto e non ci siamo mai fermati, ed è lì che fa la differenza.',
-    name: 'Giacomo e Cristina Tassi, dipendenti, due figli',
-    result: "€15'000 al mese",
-  },
-  {
-    title: 'Puoi far entrare migliaia di persone',
-    quote:
-      "Quando fai un negozio devi sperare che qualcuno entri. Con l'e-commerce puoi far entrare migliaia di persone ogni giorno. È lì che cambia tutto.",
-    name: 'Daniele Garofano, commerciale, una figlia',
-    result: '€250 al giorno',
-  },
-  {
-    title: 'Col quarto è cambiato tutto',
-    quote:
-      'Ho lanciato 3 store all\'inizio, senza grandi risultati, ma col quarto... col quarto è cambiato tutto. Ora sono sui €6000 netti al mese. Netti!',
-    name: 'Alessandro Fichera, carrozziere, 3 figli',
-    result: '€6000 netti al mese',
-  },
-  {
-    title: 'Sono un metalmeccanico, ma ce l\'ho fatta',
-    quote: 'Sono un metalmeccanico… ma ce l\'ho fatta! Ho pubblicato l\'annuncio, due ore… PRIMA VENDITA.',
-    name: 'Andrea Marzocchi, operaio',
-    result: '€2000 netti al mese',
-  },
-  {
-    title: 'Qui impari una vera professione',
-    quote:
-      'Fallo se vuoi cambiare veramente e rimescolare le carte in tavola. Se resti dove sei, non cambia nulla. Qui impari una vera professione.',
-    name: 'Michele Morri, grafico dipendente, due figlie',
-    result: '€500 al giorno',
-  },
-  {
-    title: 'Fatti la lezione di ballo in più',
-    quote: 'Vederla felice e potergli dire non c\'è problema, fatti la lezione di ballo in più.',
-    name: 'Federico Sarti, istruttore di scuola guida, una figlia',
-    result: '€1500 netti in 15 giorni',
-  },
-  {
-    title: 'Non avere dubbi, fallo subito',
-    quote: 'Gli direi non avere dubbi, fallo subito. Non aspettare. Vai tranquillo.',
-    name: 'Angelo Gatti, venditore nella grande distribuzione',
-    result: '€3000 di vendite in 8 giorni',
-  },
-  {
-    title: 'Un nuovo ordine, pure a letto',
-    quote: 'La mattina mi alzo, attivo la connessione, hai un nuovo ordine, pure a letto.',
-    name: 'Domenico Marino, ristorazione, una figlia',
-    result: '8 ordini al giorno fissi',
-  },
   {
     title: 'Oggi €500 in metà giornata!',
     quote:
       'Ieri €400 di incassi, oggi già €500 e siamo a metà giornata! In più abbiamo ancora il limite sulle pubblicità, quindi da qui si può solo migliorare...',
     name: 'Michele, Ugo e Salvatore Tripodi',
+    role: 'studenti',
     result: "€15'000 al mese",
+    wistiaId: 'fvg1folj0c',
+    thumbnail: '/images/landing/video-tripodi.webp',
   },
   {
-    title: 'In banca il mio valore si annulla',
-    quote: '…in banca il mio valore della vita si annulla.',
-    name: 'Fabiano Miele, impiegato in banca',
-    result: '12 ordini nelle prime 30 ore',
+    title: 'Me lo sentivo: dovevo farcela. E così è stato.',
+    quote:
+      'Io non volevo diventare ricco, io volevo essere libero. Lavorare dove voglio, quando voglio. E con questo percorso sto iniziando a farlo.',
+    name: 'Giovanni Pastori',
+    role: 'salumiere, sposato e con una figlia',
+    result: '€1200 al giorno',
+    wistiaId: '0dkkx7sqwa',
+    thumbnail: '/images/landing/video-pastori.webp',
+  },
+  {
+    title: 'Siamo partiti TOTALMENTE da zero!',
+    quote:
+      "Assolutamente, totalmente da zero. Non avevamo fatto niente di simile all'e-commerce. Però ci abbiamo creduto e non ci siamo mai fermati, ed è lì che fa la differenza.",
+    name: 'Giacomo e Cristina Tassi',
+    role: 'sposati con due figli, dipendenti',
+    result: "€15'000 al mese",
+    wistiaId: 'j67n1u9d6a',
+    thumbnail: '/images/landing/video-tassi.webp',
+  },
+  {
+    title: "L'e-commerce ha cambiato tutto",
+    quote:
+      "Quando fai un negozio devi sperare che qualcuno entri. Con l'e-commerce puoi far entrare migliaia di persone ogni giorno. È lì che cambia tutto.",
+    name: 'Daniele Garofano',
+    role: 'commerciale e papà di una bimba',
+    result: '€250 al giorno',
+    wistiaId: 'o7h95p9d5n',
+    thumbnail: '/images/landing/video-garofano.webp',
+  },
+  {
+    title: 'Non immaginavo fosse davvero possibile!',
+    quote:
+      "Ho lanciato 3 store all'inizio, senza grandi risultati, ma col quarto... col quarto è cambiato tutto. Ora sono sui €6000 netti al mese. Netti!",
+    name: 'Alessandro Fichera',
+    role: 'carrozziere, 3 figli maschi',
+    result: '€6000 al mese',
+    wistiaId: 'i9i0shw1ml',
+    thumbnail: '/images/landing/video-fichera.webp',
+  },
+  {
+    title: 'Questa è una vera professione alto pagata!',
+    quote:
+      'Fallo se vuoi cambiare veramente e rimescolare le carte in tavola. Se resti dove sei, non cambia nulla. Qui impari una vera professione.',
+    name: 'Michele Morri',
+    role: 'grafico, papà di due bimbe',
+    result: '€500 al giorno',
+    wistiaId: 'vb5p40l3cs',
+    thumbnail: '/images/landing/video-morri.webp',
+  },
+  {
+    title: "Farò un milione quest'anno!",
+    quote:
+      'Avevo solo bisogno di un\'altra entrata. Ora ho fatturato 150.000€ grazie a voi. Mi avete fatto sentire capace. Mai stupida. E questo vale più di tutto.',
+    name: 'Anna Rita',
+    role: 'imprenditrice, una figlia',
+    result: '€150\'000 di vendite in pochi mesi',
+    wistiaId: '6pxkwbtrin',
+    thumbnail: '/images/landing/video-annarita.webp',
+  },
+  {
+    title: "Sono un ignorante, ma ce l'ho fatta!",
+    quote:
+      "Sono un metalmeccanico ignorante... ma ce l'ho fatta! Ho pubblicato l'annuncio, due ore... PRIMA VENDITA. P***ana la miseria!",
+    name: 'Andrea Marzocchi',
+    role: 'operaio',
+    result: '€2000 netti al mese',
+    wistiaId: 'fukxu4swpe',
+    thumbnail: '/images/landing/video-marzocchi.webp',
   },
 ]
 
