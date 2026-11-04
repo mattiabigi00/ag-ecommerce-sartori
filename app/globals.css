@@ -185,7 +185,7 @@ html {
 }
 
 .marker {
-  background: var(--color-sky);
+  background: linear-gradient(var(--color-sky), var(--color-sky)) no-repeat 0 55% / 100% 1.02em;
   color: #000;
   padding: 0 0.18em;
   -webkit-box-decoration-break: clone;

@@ -34,7 +34,7 @@ export function UnlockedSection({ funnel }: { funnel: FunnelId }) {
           </p>
           <h2
             id="sbloccato-titolo"
-            className="text-balance font-display text-[clamp(1.8rem,4vw,2.8rem)] uppercase leading-[1.12]"
+            className="text-balance font-display text-[clamp(1.8rem,4vw,2.8rem)] uppercase leading-[1.32]"
           >
             Se pensi che faccia per te, <span className="marker">candidati</span>
           </h2>
@@ -108,7 +108,7 @@ export function UnlockedSection({ funnel }: { funnel: FunnelId }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-10">
           <h2
             id="altre-storie"
-            className="mx-auto max-w-3xl text-balance text-center font-display text-[clamp(1.7rem,3.6vw,2.6rem)] uppercase leading-[1.15] text-ink"
+            className="mx-auto max-w-3xl text-balance text-center font-display text-[clamp(1.7rem,3.6vw,2.6rem)] uppercase leading-[1.3] text-ink"
           >
             Altre storie di chi è partito con uno stipendio
           </h2>

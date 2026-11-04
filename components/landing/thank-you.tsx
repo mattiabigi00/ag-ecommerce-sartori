@@ -38,7 +38,7 @@ export function ThankYou({ title, intro }: Props) {
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-go md:text-[15px]">
               Candidatura ricevuta
             </p>
-            <h1 className="text-balance font-display text-[clamp(2rem,5.4vw,3.6rem)] uppercase leading-[1.1]">
+            <h1 className="text-balance font-display text-[clamp(2rem,5.4vw,3.6rem)] uppercase leading-[1.32]">
               {title}
             </h1>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">{intro}</p>
