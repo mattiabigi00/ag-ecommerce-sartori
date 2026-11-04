@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { Check, Lock } from 'lucide-react'
 import { VSL_UNLOCK_SECONDS, type FunnelId } from '@/lib/funnels'
 import { cn } from '@/lib/utils'
+import { UnlockCountdown } from './unlock-countdown'
 import { useUnlock } from './use-unlock'
 import { VslPlayer } from './vsl-player'
 
@@ -60,7 +61,6 @@ export function VslGate({
     return () => clearTimeout(timer)
   }, [])
 
-  const percent = Math.min(100, (watched / unlockAfterSeconds) * 100)
   const unlockLabel = formatTime(unlockAfterSeconds)
 
   return (
@@ -131,31 +131,9 @@ export function VslGate({
           </div>
 
           {!unlocked && (
-            <div className="flex items-start gap-4 rounded-2xl border-2 border-dashed border-white/30 p-5 md:p-6">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/10">
-                <Lock aria-hidden="true" className="size-5" />
-              </span>
-              <div className="flex min-w-0 flex-1 flex-col gap-3">
-                <p className="text-lg font-extrabold leading-snug md:text-xl">
-                  Il passo successivo si apre al minuto {unlockLabel}
-                </p>
-                <p className="text-base leading-relaxed text-white/85 md:text-[17px]">{lockedText}</p>
-                <div className="flex items-center gap-3">
-                  <div
-                    role="progressbar"
-                    aria-label="Minuti guardati"
-                    aria-valuemin={0}
-                    aria-valuemax={unlockAfterSeconds}
-                    aria-valuenow={Math.floor(watched)}
-                    className="h-2.5 flex-1 overflow-hidden rounded-full bg-white/15"
-                  >
-                    <div className="h-full rounded-full bg-sky transition-[width] duration-500" style={{ width: `${percent}%` }} />
-                  </div>
-                  <span className="shrink-0 text-sm font-bold tabular-nums text-white/85">
-                    {formatTime(watched)} di {unlockLabel}
-                  </span>
-                </div>
-              </div>
+            <div className="flex flex-col gap-4">
+              <UnlockCountdown remainingSeconds={unlockAfterSeconds - watched} />
+              <p className="text-center text-base leading-relaxed text-white/85 md:text-[17px]">{lockedText}</p>
             </div>
           )}
         </div>
