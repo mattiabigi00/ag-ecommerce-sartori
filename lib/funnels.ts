@@ -30,6 +30,9 @@ export const FUNNEL_IDS = Object.keys(FUNNELS) as [FunnelId, ...FunnelId[]]
 /** Cookie impostato dopo l'iscrizione alla squeeze page: permette di vedere la VSL del funnel 2. */
 export const GATE_COOKIE = 'ag_gate_funnel2'
 
+/** Id del lead creato nella squeeze page: serve per collegare le risposte del sondaggio. */
+export const LEAD_ID_COOKIE = 'ag_lead_id'
+
 /** Nome inserito nella squeeze page, usato per personalizzare il titolo della VSL. */
 export const LEAD_NAME_COOKIE = 'ag_lead_name'
 

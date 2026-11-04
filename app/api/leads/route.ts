@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
 import { leads } from '@/lib/db/schema'
-import { FUNNEL_IDS, GATE_COOKIE, LEAD_NAME_COOKIE } from '@/lib/funnels'
+import { FUNNEL_IDS, GATE_COOKIE, LEAD_ID_COOKIE, LEAD_NAME_COOKIE } from '@/lib/funnels'
 
 const stringRecord = z.record(z.string().max(100), z.string().max(2000))
 
@@ -32,7 +32,9 @@ export async function POST(request: Request) {
 
   const { funnel, step, name, email, phone, answers, tracking } = parsed.data
 
-  await db.insert(leads).values({
+  const [lead] = await db
+    .insert(leads)
+    .values({
     funnel,
     step,
     name: name || null,
@@ -41,12 +43,20 @@ export async function POST(request: Request) {
     answers,
     tracking,
     userAgent: request.headers.get('user-agent')?.slice(0, 300) ?? null,
-  })
+    })
+    .returning({ id: leads.id })
 
   const response = NextResponse.json({ ok: true })
 
   if (funnel === 'funnel-2' && step === 'squeeze') {
     response.cookies.set(GATE_COOKIE, '1', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 30,
+    })
+    response.cookies.set(LEAD_ID_COOKIE, lead.id, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

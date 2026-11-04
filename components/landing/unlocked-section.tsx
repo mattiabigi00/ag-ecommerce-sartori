@@ -156,7 +156,10 @@ export function UnlockedSection({ funnel }: { funnel: FunnelId }) {
             </p>
           </div>
           <div className="w-full rounded-3xl bg-white p-5 text-ink shadow-2xl sm:p-8">
-            <ApplicationForm funnel={funnel} redirectTo={FUNNELS[funnel].thankYouPath} />
+            <ApplicationForm
+              funnel={funnel}
+              mode={funnel === 'funnel-2' ? 'survey' : 'full'}
+              redirectTo={FUNNELS[funnel].thankYouPath} />
           </div>
           <GuaranteeNote className="max-w-[680px]" />
           <p className="max-w-xl text-center text-[15px] leading-relaxed text-white/75">

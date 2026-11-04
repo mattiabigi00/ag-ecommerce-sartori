@@ -31,3 +31,22 @@ export async function submitLead(payload: LeadPayload): Promise<{ ok: true } | {
     return { ok: false, error: 'Connessione non riuscita. Riprova tra un istante.' }
   }
 }
+
+/** Aggiunge le risposte del sondaggio al lead già creato nella squeeze page (funnel 2). */
+export async function submitSurveyAnswers(
+  answers: Record<string, string>,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  try {
+    const response = await fetch('/api/leads/answers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ answers }),
+    })
+    if (!response.ok) {
+      return { ok: false, error: 'Non siamo riusciti a salvare le risposte. Riprova tra un istante.' }
+    }
+    return { ok: true }
+  } catch {
+    return { ok: false, error: 'Connessione non riuscita. Riprova tra un istante.' }
+  }
+}
