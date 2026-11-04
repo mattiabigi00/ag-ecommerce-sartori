@@ -38,6 +38,7 @@ export type MoreStory = {
   role: string
   result: string
   quote: string
+  avatar?: string
 }
 
 export const MORE_STORIES: MoreStory[] = [
@@ -76,6 +77,7 @@ export const MORE_STORIES: MoreStory[] = [
     role: 'Grafico dipendente',
     result: '600 € di vendite al giorno',
     quote: 'Fallo se hai voglia di cambiare veramente le cose.',
+    avatar: '/images/landing/video-morri.webp',
   },
 ]
 

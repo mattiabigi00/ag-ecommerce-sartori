@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { ApplicationForm } from '@/components/funnel/application-form'
 import { FUNNELS, type FunnelId } from '@/lib/funnels'
@@ -93,7 +94,17 @@ export function UnlockedSection({
             {MORE_STORIES.map((story) => (
               <article key={story.name} className="flex flex-col gap-3 rounded-2xl bg-white p-6 shadow-sm">
                 <div className="flex items-center gap-3">
-                  <Initial name={story.name} />
+                  {story.avatar ? (
+                    <Image
+                      src={story.avatar}
+                      alt={`Foto di ${story.name}`}
+                      width={96}
+                      height={96}
+                      className="size-12 shrink-0 rounded-full object-cover"
+                    />
+                  ) : (
+                    <Initial name={story.name} />
+                  )}
                   <div>
                     <h3 className="text-lg font-extrabold leading-tight text-ink">{story.name}</h3>
                     <p className="text-sm leading-snug text-ink-soft">{story.role}</p>
