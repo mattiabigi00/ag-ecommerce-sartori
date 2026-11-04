@@ -13,6 +13,7 @@ function CtaCard({ funnel, position, title }: { funnel: FunnelId; position: stri
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5 rounded-3xl bg-black p-6 text-center text-white shadow-xl md:p-10">
       {title && <p className="text-balance font-display text-2xl uppercase leading-tight md:text-3xl">{title}</p>}
+      <SeatsTimer />
       <div className="w-full max-w-[680px]">
         <CtaButton position={position} funnel={funnel} href="#modulo-survey" label={UNLOCK_CTA_LABEL} />
       </div>
@@ -44,6 +45,7 @@ export function UnlockedSection({
           <p className="max-w-xl text-lg leading-relaxed text-white/90">
             Rispondi a qualche domanda. Se il tuo profilo è in linea, un consulente ti chiama entro 24 ore.
           </p>
+          <SeatsTimer />
           <div className="w-full max-w-[680px]">
             <CtaButton position="unlocked-top" funnel={funnel} href="#modulo-survey" label={UNLOCK_CTA_LABEL} />
           </div>
