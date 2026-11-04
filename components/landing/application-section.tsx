@@ -1,5 +1,6 @@
 import { Check, X } from 'lucide-react'
 import { ApplicationForm } from '@/components/funnel/application-form'
+import { FUNNELS } from '@/lib/funnels'
 import { APPLY_IF, CALL_OUTCOMES, DONT_APPLY_IF } from '@/lib/landing/funnel-1-content'
 import { GuaranteeNote, SeatsTimer, StepsList } from './cta-block'
 import { SectionTitle } from './ui-bits'
@@ -70,7 +71,7 @@ export function ApplicationSection() {
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6">
           <SeatsTimer />
           <div className="w-full rounded-3xl bg-white p-5 text-ink shadow-2xl sm:p-8">
-            <ApplicationForm funnel="funnel-1" />
+            <ApplicationForm funnel="funnel-1" redirectTo={FUNNELS['funnel-1'].thankYouPath} />
           </div>
           <StepsList />
           <GuaranteeNote className="max-w-[680px]" />

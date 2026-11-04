@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
 import { leads } from '@/lib/db/schema'
-import { FUNNEL_IDS, GATE_COOKIE } from '@/lib/funnels'
+import { FUNNEL_IDS, GATE_COOKIE, LEAD_NAME_COOKIE } from '@/lib/funnels'
 
 const stringRecord = z.record(z.string().max(100), z.string().max(2000))
 
@@ -49,6 +49,15 @@ export async function POST(request: Request) {
       path: '/',
       maxAge: 60 * 60 * 24 * 30,
     })
+    if (name) {
+      response.cookies.set(LEAD_NAME_COOKIE, encodeURIComponent(name.slice(0, 60)), {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30,
+      })
+    }
   }
 
   return response

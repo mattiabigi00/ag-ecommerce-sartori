@@ -112,7 +112,12 @@ export function LeadForm({
           {error}
         </p>
       )}
-      <Button type="submit" size="lg" disabled={pending}>
+      <Button
+        type="submit"
+        size="lg"
+        disabled={pending}
+        className="h-14 w-full rounded-xl bg-go text-base font-extrabold uppercase tracking-wide text-black shadow-[0_6px_0_0_var(--color-go-strong)] hover:bg-go hover:brightness-105 active:translate-y-1 active:shadow-[0_2px_0_0_var(--color-go-strong)] md:text-lg"
+      >
         {pending ? 'Invio in corso...' : ctaLabel}
       </Button>
     </form>

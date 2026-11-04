@@ -51,17 +51,29 @@ export function StepsList({ className }: { className?: string }) {
   )
 }
 
-export function CtaButton({ position, className }: { position: string; className?: string }) {
+export function CtaButton({
+  position,
+  className,
+  href = '#candidatura',
+  label = CTA_LABEL,
+  funnel = 'funnel-1',
+}: {
+  position: string
+  className?: string
+  href?: string
+  label?: string
+  funnel?: string
+}) {
   return (
     <a
-      href="#candidatura"
-      onClick={() => trackEvent('CtaClick', { funnel: 'funnel-1', position })}
+      href={href}
+      onClick={() => trackEvent('CtaClick', { funnel, position })}
       className={cn(
         'group flex min-h-16 w-full items-center justify-center gap-3 rounded-xl bg-go px-6 py-5 text-center text-lg font-extrabold uppercase leading-tight tracking-wide text-black shadow-[0_8px_0_0_var(--color-go-strong)] transition active:translate-y-1 active:shadow-[0_4px_0_0_var(--color-go-strong)] hover:brightness-105 focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-white md:text-xl',
         className,
       )}
     >
-      {CTA_LABEL}
+      {label}
       <ArrowRight aria-hidden="true" className="size-6 shrink-0 transition-transform group-hover:translate-x-1" />
     </a>
   )

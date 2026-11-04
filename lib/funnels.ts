@@ -6,17 +6,20 @@ export const FUNNELS = {
     id: 'funnel-1',
     label: 'Landing + VSL + candidatura',
     path: '/funnel-1',
+    thankYouPath: '/funnel-1/grazie',
   },
   'funnel-2': {
     id: 'funnel-2',
     label: 'Gated VSL (squeeze + VSL)',
     path: '/funnel-2',
     videoPath: '/funnel-2/video',
+    thankYouPath: '/funnel-2/grazie',
   },
   'funnel-3': {
     id: 'funnel-3',
     label: 'Ungated VSL',
     path: '/funnel-3',
+    thankYouPath: '/funnel-3/grazie',
   },
 } as const
 
@@ -26,6 +29,9 @@ export const FUNNEL_IDS = Object.keys(FUNNELS) as [FunnelId, ...FunnelId[]]
 
 /** Cookie impostato dopo l'iscrizione alla squeeze page: permette di vedere la VSL del funnel 2. */
 export const GATE_COOKIE = 'ag_gate_funnel2'
+
+/** Nome inserito nella squeeze page, usato per personalizzare il titolo della VSL. */
+export const LEAD_NAME_COOKIE = 'ag_lead_name'
 
 /**
  * Sorgenti video. Imposta l'URL del file (mp4 / Vercel Blob) oppure l'embed (Vimeo, YouTube, Wistia).
