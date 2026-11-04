@@ -20,7 +20,6 @@ export async function submitLead(payload: LeadPayload): Promise<{ ok: true } | {
       body: JSON.stringify({
         ...payload,
         name: payload.name || undefined,
-        phone: payload.phone || undefined,
         website: payload.website || undefined,
       }),
     })

@@ -11,7 +11,11 @@ const bodySchema = z.object({
   step: z.string().min(1).max(50),
   name: z.string().trim().max(120).optional(),
   email: z.string().trim().toLowerCase().email().max(200),
-  phone: z.string().trim().max(40).optional(),
+  phone: z
+    .string()
+    .trim()
+    .max(40)
+    .refine((value) => value.replace(/\D/g, '').length >= 6, 'Telefono non valido'),
   answers: stringRecord.default({}),
   tracking: stringRecord.default({}),
   consent: z.literal(true),
@@ -33,7 +37,7 @@ export async function POST(request: Request) {
     step,
     name: name || null,
     email,
-    phone: phone || null,
+    phone,
     answers,
     tracking,
     userAgent: request.headers.get('user-agent')?.slice(0, 300) ?? null,

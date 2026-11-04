@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
+import { Lock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
@@ -77,22 +78,47 @@ export function LeadForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-4" noValidate={false}>
+    <form onSubmit={onSubmit} className="flex flex-col gap-5">
       {showName && (
-        <div className="flex flex-col gap-2">
-          <Label htmlFor={`${step}-name`}>Nome</Label>
-          <Input id={`${step}-name`} name="name" autoComplete="name" required />
-        </div>
+        <Field id={`${step}-name`} label="Nome">
+          <Input
+            id={`${step}-name`}
+            name="name"
+            autoComplete="given-name"
+            placeholder="Il tuo nome"
+            required
+            className={inputClass}
+          />
+        </Field>
       )}
-      <div className="flex flex-col gap-2">
-        <Label htmlFor={`${step}-email`}>Email</Label>
-        <Input id={`${step}-email`} name="email" type="email" autoComplete="email" required />
-      </div>
+      <Field id={`${step}-email`} label="Email">
+        <Input
+          id={`${step}-email`}
+          name="email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          placeholder="nome@email.it"
+          required
+          className={inputClass}
+        />
+      </Field>
       {showPhone && (
-        <div className="flex flex-col gap-2">
-          <Label htmlFor={`${step}-phone`}>Telefono</Label>
-          <Input id={`${step}-phone`} name="phone" type="tel" autoComplete="tel" required />
-        </div>
+        <Field id={`${step}-phone`} label="Cellulare">
+          <Input
+            id={`${step}-phone`}
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="+39 333 1234567"
+            required
+            minLength={6}
+            pattern="[0-9+\s().\-]{6,}"
+            title="Inserisci un numero di telefono valido"
+            className={inputClass}
+          />
+        </Field>
       )}
       <input
         name="website"
@@ -102,24 +128,49 @@ export function LeadForm({
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
       <div className="flex items-start gap-3">
-        <Checkbox id={`${step}-consent`} name="consent" required />
-        <Label htmlFor={`${step}-consent`} className="text-sm leading-snug text-muted-foreground">
+        <Checkbox
+          id={`${step}-consent`}
+          name="consent"
+          required
+          className="mt-0.5 size-5 rounded-md border-2 border-ink/25 bg-white data-checked:border-sky data-checked:bg-sky data-checked:text-white"
+        />
+        <Label htmlFor={`${step}-consent`} className="text-[13px] font-normal leading-snug text-ink-soft">
           Acconsento al trattamento dei dati personali secondo la privacy policy.
         </Label>
       </div>
       {error && (
-        <p role="alert" className="text-sm text-destructive">
+        <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-700">
           {error}
         </p>
       )}
-      <Button
-        type="submit"
-        size="lg"
-        disabled={pending}
-        className="h-14 w-full rounded-xl bg-go text-base font-extrabold uppercase tracking-wide text-black shadow-[0_6px_0_0_var(--color-go-strong)] hover:bg-go hover:brightness-105 active:translate-y-1 active:shadow-[0_2px_0_0_var(--color-go-strong)] md:text-lg"
-      >
-        {pending ? 'Invio in corso...' : ctaLabel}
-      </Button>
+      <div className="flex flex-col gap-3">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={pending}
+          className="h-auto min-h-14 w-full text-balance rounded-xl bg-go px-4 py-3.5 text-[15px] font-extrabold uppercase leading-tight tracking-wide text-black shadow-[0_6px_0_0_var(--color-go-strong)] hover:bg-go hover:brightness-105 active:translate-y-1 active:shadow-[0_2px_0_0_var(--color-go-strong)] sm:text-lg"
+        >
+          {pending ? 'Invio in corso...' : ctaLabel}
+        </Button>
+        <p className="flex items-center justify-center gap-1.5 text-xs text-ink-soft/80">
+          <Lock aria-hidden="true" className="size-3.5" />
+          I tuoi dati sono al sicuro. Niente spam.
+        </p>
+      </div>
     </form>
+  )
+}
+
+const inputClass =
+  'h-12 rounded-xl border-2 border-ink/10 bg-white px-4 text-base text-ink shadow-none placeholder:text-ink/35 focus-visible:border-sky focus-visible:ring-4 focus-visible:ring-sky/20 aria-invalid:border-red-500'
+
+function Field({ id, label, children }: { id: string; label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <Label htmlFor={id} className="text-sm font-bold text-ink">
+        {label}
+      </Label>
+      {children}
+    </div>
   )
 }

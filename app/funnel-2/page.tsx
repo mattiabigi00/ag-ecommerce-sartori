@@ -79,6 +79,7 @@ export default function Funnel2SqueezePage() {
                   funnel="funnel-2"
                   step="squeeze"
                   ctaLabel="Guarda la lezione gratuita"
+                  showPhone
                   redirectTo={FUNNELS['funnel-2'].videoPath}
                 />
               </div>
