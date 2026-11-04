@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { VslGate } from '@/components/funnel/vsl-gate'
+import { Accreditation } from '@/components/landing/proof-bar'
 import { SiteFooter } from '@/components/landing/site-footer'
 import { UnlockedSection } from '@/components/landing/unlocked-section'
 import { VSL_SOURCES } from '@/lib/funnels'
@@ -18,6 +19,7 @@ export default function Funnel3Page() {
           funnel="funnel-3"
           {...VSL_SOURCES['funnel-3']}
           lockedText="Guarda la lezione: al minuto 8 si apre la candidatura alla chiamata gratuita, con le storie di chi ha già iniziato."
+          persistent={<Accreditation />}
           header={
             <div className="flex flex-col items-center gap-4 text-center">
               <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
@@ -34,7 +36,7 @@ export default function Funnel3Page() {
             </div>
           }
         >
-          <UnlockedSection funnel="funnel-3" />
+          <UnlockedSection funnel="funnel-3" showAccreditation={false} />
         </VslGate>
       </main>
       <SiteFooter />

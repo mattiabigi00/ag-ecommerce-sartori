@@ -20,6 +20,8 @@ type Props = {
   showSteps?: boolean
   /** Testo del riquadro sotto il video mentre e' bloccato. */
   lockedText: string
+  /** Contenuto sempre visibile sotto il video, anche prima dello sblocco. */
+  persistent?: React.ReactNode
   /** Contenuto a tutta larghezza che appare allo sblocco. */
   children: React.ReactNode
 }
@@ -38,6 +40,7 @@ export function VslGate({
   header,
   showSteps = false,
   lockedText,
+  persistent,
   children,
 }: Props) {
   const { unlocked, watched, report } = useUnlock({
@@ -138,6 +141,8 @@ export function VslGate({
           )}
         </div>
       </section>
+
+      {persistent}
 
       {unlocked && (
         <div ref={revealRef} className="animate-in fade-in slide-in-from-bottom-4 duration-700">

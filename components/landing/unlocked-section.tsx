@@ -24,7 +24,13 @@ function CtaCard({ funnel, position, title }: { funnel: FunnelId; position: stri
   )
 }
 
-export function UnlockedSection({ funnel }: { funnel: FunnelId }) {
+export function UnlockedSection({
+  funnel,
+  showAccreditation = true,
+}: {
+  funnel: FunnelId
+  showAccreditation?: boolean
+}) {
   return (
     <>
       <section aria-labelledby="sbloccato-titolo" className="bg-black px-5 pb-16 text-white md:pb-20">
@@ -48,7 +54,7 @@ export function UnlockedSection({ funnel }: { funnel: FunnelId }) {
         </div>
       </section>
 
-      <Accreditation />
+      {showAccreditation && <Accreditation />}
 
       <section aria-labelledby="storie-sbloccate" className="bg-white px-5 py-16 md:py-24">
         <div className="mx-auto flex max-w-6xl flex-col gap-12">
