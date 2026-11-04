@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { isVimeoUrl, VimeoPlayer } from './vimeo-player'
 
 type Props = {
   src?: string
@@ -12,6 +13,8 @@ type Props = {
   /** Secondi gia' visti (per la barra di avanzamento verso lo sblocco). */
   unlockAfterSeconds: number
   alreadyUnlocked: boolean
+  /** Chiave per salvare il tempo guardato (solo Vimeo). */
+  progressKey?: string
   onProgress: (seconds: number) => void
   className?: string
 }
@@ -22,6 +25,7 @@ export function VslPlayer({
   poster,
   unlockAfterSeconds,
   alreadyUnlocked,
+  progressKey,
   onProgress,
   className,
 }: Props) {
@@ -31,6 +35,17 @@ export function VslPlayer({
         src={src}
         poster={poster}
         alreadyUnlocked={alreadyUnlocked}
+        onProgress={onProgress}
+        className={className}
+      />
+    )
+  }
+
+  if (embedUrl && isVimeoUrl(embedUrl)) {
+    return (
+      <VimeoPlayer
+        embedUrl={embedUrl}
+        progressKey={progressKey}
         onProgress={onProgress}
         className={className}
       />

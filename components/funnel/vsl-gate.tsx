@@ -125,6 +125,7 @@ export function VslGate({
               poster={poster}
               unlockAfterSeconds={unlockAfterSeconds}
               alreadyUnlocked={unlocked}
+              progressKey={`ag_watched_${funnel}`}
               onProgress={report}
             />
           </div>

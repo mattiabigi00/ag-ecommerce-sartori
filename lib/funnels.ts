@@ -33,13 +33,15 @@ export const GATE_COOKIE = 'ag_gate_funnel2'
 /** Nome inserito nella squeeze page, usato per personalizzare il titolo della VSL. */
 export const LEAD_NAME_COOKIE = 'ag_lead_name'
 
+const VIMEO_VSL_URL = 'https://player.vimeo.com/video/1243342782?h=0176d0d698&badge=0&autopause=0&app_id=58479'
+
 /**
  * Sorgenti video. Imposta l'URL del file (mp4 / Vercel Blob) oppure l'embed (Vimeo, YouTube, Wistia).
- * Con il file mp4 lo sblocco si basa sul tempo di riproduzione reale; con l'embed sul tempo
- * trascorso sulla pagina (scheda visibile).
+ * Con mp4 e con Vimeo lo sblocco si basa sul tempo di riproduzione reale; con gli altri
+ * embed sul tempo trascorso sulla pagina (scheda visibile).
  */
 export const VSL_SOURCES: Record<FunnelId, { src?: string; embedUrl?: string; poster?: string }> = {
-  'funnel-1': {},
-  'funnel-2': {},
-  'funnel-3': {},
+  'funnel-1': { embedUrl: VIMEO_VSL_URL },
+  'funnel-2': { embedUrl: VIMEO_VSL_URL },
+  'funnel-3': { embedUrl: VIMEO_VSL_URL },
 }
