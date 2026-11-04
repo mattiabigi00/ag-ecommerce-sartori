@@ -12,6 +12,24 @@ export const metadata: Metadata = {
     'Inserisci nome ed email per guardare la lezione gratuita: come un dipendente può costruire un negozio online la sera.',
 }
 
+function LessonBullets() {
+  return (
+    <>
+      <p className="mb-5 text-base font-extrabold uppercase tracking-[0.1em] text-sky">In questa lezione scopri:</p>
+      <ul className="flex flex-col gap-4">
+        {SQUEEZE_BULLETS.map((bullet) => (
+          <li key={bullet} className="flex items-start gap-3 text-[17px] leading-snug md:text-lg">
+            <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-go text-black">
+              <Check aria-hidden="true" className="size-4" strokeWidth={4} />
+            </span>
+            {bullet}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
 export default function Funnel2SqueezePage() {
   return (
     <>
@@ -30,34 +48,27 @@ export default function Funnel2SqueezePage() {
                 Guarda la lezione e scopri il metodo che usano operai, impiegati e corrieri per costruire uno
                 stipendio in più, <strong className="text-white">la sera, in 90 minuti.</strong>
               </p>
-              <p className="text-base font-extrabold uppercase tracking-[0.1em] text-sky">In questa lezione scopri:</p>
-              <ul className="flex flex-col gap-4">
-                {SQUEEZE_BULLETS.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-3 text-[17px] leading-snug md:text-lg">
-                    <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-go text-black">
-                      <Check aria-hidden="true" className="size-4" strokeWidth={4} />
-                    </span>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
+              <div className="hidden lg:block">
+                <LessonBullets />
+              </div>
             </div>
 
             <div className="flex min-w-0 flex-col gap-4">
-              <div
-                aria-hidden="true"
-                className="relative hidden aspect-video items-center justify-center overflow-hidden rounded-2xl border-2 border-sky bg-navy lg:flex"
+              <a
+                href="#modulo"
+                aria-label="Guarda la lezione gratuita: vai al modulo"
+                className="group relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl border-2 border-sky bg-navy transition-transform hover:scale-[1.01]"
               >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,155,255,0.35),transparent_60%)]" />
-                <span className="relative flex size-20 items-center justify-center rounded-full bg-white text-black">
-                  <Play className="size-8 translate-x-0.5" fill="currentColor" />
+                <span className="relative flex size-16 items-center justify-center rounded-full bg-white text-black transition-transform group-hover:scale-110 sm:size-20">
+                  <Play className="size-7 translate-x-0.5 sm:size-8" fill="currentColor" />
                 </span>
-                <span className="absolute bottom-3 left-4 text-sm font-bold uppercase tracking-[0.12em] text-white/85">
+                <span className="absolute bottom-3 left-4 right-4 text-xs font-bold uppercase tracking-[0.1em] text-white/85 sm:text-sm">
                   Lezione gratuita con Alex Grassi
                 </span>
-              </div>
+              </a>
 
-              <div className="rounded-3xl bg-white p-6 text-ink shadow-2xl sm:p-8">
+              <div id="modulo" className="scroll-mt-6 rounded-3xl bg-white p-6 text-ink shadow-2xl sm:p-8">
                 <h2 className="mb-1 text-balance text-2xl font-extrabold leading-tight">
                   Dove ti mando la lezione?
                 </h2>
@@ -71,6 +82,10 @@ export default function Funnel2SqueezePage() {
                   redirectTo={FUNNELS['funnel-2'].videoPath}
                 />
               </div>
+            </div>
+
+            <div className="lg:hidden">
+              <LessonBullets />
             </div>
           </div>
         </section>
