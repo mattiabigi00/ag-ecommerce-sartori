@@ -41,7 +41,7 @@ export default async function Funnel2VideoPage() {
               <p className="rounded-full bg-go px-4 py-2 text-sm font-extrabold uppercase tracking-[0.12em] text-black md:text-[15px]">
                 {firstName ? `${firstName}, la lezione è pronta` : 'La lezione è pronta'}
               </p>
-              <h1 className="text-balance font-display text-[clamp(1.9rem,5vw,3.4rem)] uppercase leading-[1.12]">
+              <h1 className="text-balance font-display text-[clamp(1.5rem,5.2vw,3.4rem)] uppercase leading-[1.12]">
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre facevo ancora il
                 dipendente
               </h1>

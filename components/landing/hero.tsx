@@ -6,11 +6,11 @@ export function Hero() {
   return (
     <section className="bg-black px-5 pb-16 pt-8 text-white md:pb-24 md:pt-12">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-7 text-center">
-        <p className="rounded-full bg-white/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] text-white md:text-[15px]">
+        <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] text-white sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
           Per chi si spacca la schiena a lavoro ogni giorno
         </p>
 
-        <h1 className="text-balance font-display text-[clamp(2.15rem,6.2vw,4.4rem)] uppercase leading-[1.32] tracking-[0.005em]">
+        <h1 className="text-balance font-display text-[clamp(1.55rem,6.4vw,4.4rem)] uppercase leading-[1.32] tracking-[0.005em]">
           <span className="marker">10.000 euro in un giorno</span>, partendo da un negozio online costruito la
           sera: l&apos;ex dipendente Alex Grassi rivela come ci è riuscito
         </h1>

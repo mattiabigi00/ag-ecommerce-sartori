@@ -17,12 +17,12 @@ export default function Funnel2SqueezePage() {
     <>
       <main>
         <section className="bg-black px-5 py-12 text-white md:py-20">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-            <div className="flex flex-col gap-6">
-              <p className="w-fit rounded-full bg-white/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] md:text-[15px]">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+            <div className="flex min-w-0 flex-col gap-6">
+              <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:w-fit sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
                 Lezione gratuita per chi ha un lavoro
               </p>
-              <h1 className="text-balance font-display text-[clamp(2.1rem,5.2vw,3.9rem)] uppercase leading-[1.1]">
+              <h1 className="text-balance font-display text-[clamp(1.55rem,5.8vw,3.9rem)] uppercase leading-[1.1]">
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre ero ancora
                 dipendente
               </h1>
@@ -43,7 +43,7 @@ export default function Funnel2SqueezePage() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex min-w-0 flex-col gap-4">
               <div
                 aria-hidden="true"
                 className="relative hidden aspect-video items-center justify-center overflow-hidden rounded-2xl border-2 border-sky bg-navy lg:flex"

@@ -20,10 +20,10 @@ export default function Funnel3Page() {
           lockedText="Guarda la lezione: al minuto 8 si apre la candidatura alla chiamata gratuita, con le storie di chi ha già iniziato."
           header={
             <div className="flex flex-col items-center gap-4 text-center">
-              <p className="rounded-full bg-white/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] md:text-[15px]">
+              <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
                 Per chi ha un lavoro e vuole uno stipendio in più
               </p>
-              <h1 className="text-balance font-display text-[clamp(2rem,5.6vw,3.8rem)] uppercase leading-[1.1]">
+              <h1 className="text-balance font-display text-[clamp(1.55rem,5.8vw,3.8rem)] uppercase leading-[1.1]">
                 <span className="marker">10.000 euro in un giorno</span>, con un negozio online costruito la
                 sera
               </h1>

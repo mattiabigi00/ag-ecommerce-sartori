@@ -39,7 +39,7 @@ export function Program() {
           <span className="flex size-16 items-center justify-center rounded-full bg-go/15 text-go">
             <ShieldCheck aria-hidden="true" className="size-9" />
           </span>
-          <SectionTitle className="text-[clamp(1.8rem,4vw,2.8rem)]">
+          <SectionTitle className="text-[clamp(1.4rem,4.2vw,2.8rem)]">
             Garanzia <span className="marker">Primi 4.000€</span>
           </SectionTitle>
           <div className="flex max-w-2xl flex-col gap-4 text-left text-lg leading-relaxed text-white/90 md:text-xl">
