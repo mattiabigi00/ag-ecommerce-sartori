@@ -1,5 +1,4 @@
 import { CheckCircle2, Clock, Phone, Smartphone } from 'lucide-react'
-import { FunnelHeader } from './funnel-header'
 import { SiteFooter } from './site-footer'
 
 const NEXT_STEPS = [
@@ -28,7 +27,6 @@ type Props = {
 export function ThankYou({ title, intro }: Props) {
   return (
     <>
-      <FunnelHeader />
       <main className="bg-black px-5 py-14 text-white md:py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
           <span className="flex size-16 items-center justify-center rounded-full bg-go text-black">

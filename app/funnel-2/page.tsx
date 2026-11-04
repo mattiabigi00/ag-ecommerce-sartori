@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Check, Play } from 'lucide-react'
 import { LeadForm } from '@/components/funnel/lead-form'
-import { FunnelHeader } from '@/components/landing/funnel-header'
 import { Accreditation } from '@/components/landing/proof-bar'
 import { SiteFooter } from '@/components/landing/site-footer'
 import { FUNNELS } from '@/lib/funnels'
@@ -16,7 +15,6 @@ export const metadata: Metadata = {
 export default function Funnel2SqueezePage() {
   return (
     <>
-      <FunnelHeader />
       <main>
         <section className="bg-black px-5 py-12 text-white md:py-20">
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">

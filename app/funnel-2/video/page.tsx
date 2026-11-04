@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { VslGate } from '@/components/funnel/vsl-gate'
-import { FunnelHeader } from '@/components/landing/funnel-header'
 import { SiteFooter } from '@/components/landing/site-footer'
 import { UnlockedSection } from '@/components/landing/unlocked-section'
 import { FUNNELS, GATE_COOKIE, LEAD_NAME_COOKIE, VSL_SOURCES } from '@/lib/funnels'
@@ -31,7 +30,6 @@ export default async function Funnel2VideoPage() {
 
   return (
     <>
-      <FunnelHeader />
       <main>
         <VslGate
           funnel="funnel-2"

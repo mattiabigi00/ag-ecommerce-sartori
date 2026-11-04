@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { VslGate } from '@/components/funnel/vsl-gate'
-import { FunnelHeader } from '@/components/landing/funnel-header'
 import { SiteFooter } from '@/components/landing/site-footer'
 import { UnlockedSection } from '@/components/landing/unlocked-section'
 import { VSL_SOURCES } from '@/lib/funnels'
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 export default function Funnel3Page() {
   return (
     <>
-      <FunnelHeader />
       <main>
         <VslGate
           funnel="funnel-3"
