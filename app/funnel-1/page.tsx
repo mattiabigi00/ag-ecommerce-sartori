@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ApplicationSection } from '@/components/landing/application-section'
+import { FloatingCta } from '@/components/landing/floating-cta'
 import { Hero } from '@/components/landing/hero'
 import { Letter } from '@/components/landing/letter'
 import { Program } from '@/components/landing/program'
@@ -28,6 +29,8 @@ export default function Funnel1Page() {
       <Program />
       <ApplicationSection />
       <SiteFooter />
+      <div aria-hidden="true" className="h-24 bg-[#05070d] md:hidden" />
+      <FloatingCta />
     </main>
   )
 }
