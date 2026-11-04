@@ -5,7 +5,7 @@ import { UnlockedSection } from '@/components/landing/unlocked-section'
 import { VSL_SOURCES } from '@/lib/funnels'
 
 export const metadata: Metadata = {
-  title: 'Come un dipendente ha incassato 10.000 euro in un giorno | Alex Grassi',
+  title: 'Come ho incassato 10.000 euro in un giorno mentre ero ancora dipendente | Alex Grassi',
   description:
     'Guarda la lezione gratuita: come costruire un negozio online la sera, partendo da un lavoro dipendente.',
 }
@@ -24,8 +24,8 @@ export default function Funnel3Page() {
                 Per chi ha un lavoro e vuole uno stipendio in più
               </p>
               <h1 className="text-balance font-display text-[clamp(1.55rem,6vw,3.9rem)] uppercase leading-[1.32] tracking-[0.005em]">
-                <span className="marker">10.000 euro in un giorno</span>, con un negozio online costruito la
-                sera
+                Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre ero ancora
+                dipendente
               </h1>
               <p className="max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
                 Guarda la lezione gratuita: ti mostro i <strong className="text-white">3 passi</strong> che
