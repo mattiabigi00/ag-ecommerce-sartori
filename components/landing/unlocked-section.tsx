@@ -7,7 +7,7 @@ import {
   UNLOCK_CTA_LABEL,
   UNLOCK_CTA_NOTE,
 } from '@/lib/landing/unlocked-content'
-import { GuaranteeNote, CtaButton } from './cta-block'
+import { GuaranteeNote, CtaButton, SeatsTimer } from './cta-block'
 import { Accreditation } from './proof-bar'
 import { Reviews } from './reviews'
 import { Initial, SectionTitle, Underline } from './ui-bits'
@@ -161,6 +161,7 @@ export function UnlockedSection({
               Rispondi a qualche domanda. Se il tuo profilo è in linea, un consulente ti chiama entro 24 ore.
             </p>
           </div>
+          <SeatsTimer />
           <div className="w-full rounded-3xl bg-white p-5 text-ink shadow-2xl sm:p-8">
             <ApplicationForm
               funnel={funnel}

@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { ArrowRight, ShieldCheck } from 'lucide-react'
 import { trackEvent } from '@/lib/tracking'
 import {
@@ -7,18 +8,24 @@ import {
   CTA_LABEL,
   CTA_STEPS,
   GUARANTEE_SHORT,
-  SEATS_LEFT,
+  getSeatsLeft,
 } from '@/lib/landing/funnel-1-content'
 import { cn } from '@/lib/utils'
 import { Countdown } from './countdown'
 
 export function SeatsTimer({ className, label }: { className?: string; label?: string }) {
+  const [seats, setSeats] = useState<number | null>(null)
+
+  useEffect(() => {
+    setSeats(getSeatsLeft())
+  }, [])
+
   return (
     <div className={cn('flex flex-col items-center gap-3 sm:flex-row sm:gap-5', className)}>
       <p className="text-base font-bold text-white md:text-lg">
         {label ?? (
           <>
-            Restano <span className="marker">{SEATS_LEFT} posti</span> questa settimana
+            Restano <span className="marker">{seats ?? '--'} posti</span> questa settimana
           </>
         )}
       </p>

@@ -1,5 +1,10 @@
-/** Posti mostrati nel blocco "restano N posti". Da aggiornare a mano ogni settimana. */
-export const SEATS_LEFT = 8
+/** Posti residui per giorno, da lunedì (12) a domenica (2): scendono gradualmente durante la settimana. */
+const SEATS_BY_WEEKDAY = [12, 10, 9, 7, 5, 4, 2]
+
+/** `Date#getDay()` parte da domenica (0): si riporta a lunedì = 0. */
+export function getSeatsLeft(date: Date = new Date()): number {
+  return SEATS_BY_WEEKDAY[(date.getDay() + 6) % 7]
+}
 
 export const GUARANTEE_SHORT =
   'Segui il metodo e il mio team ti segue passo passo finché non incassi i tuoi primi 4.000 euro.'
