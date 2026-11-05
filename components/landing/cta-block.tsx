@@ -1,35 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { ArrowRight, ShieldCheck } from 'lucide-react'
 import { trackEvent } from '@/lib/tracking'
-import {
-  CTA_DECLINE,
-  CTA_LABEL,
-  CTA_STEPS,
-  GUARANTEE_SHORT,
-  getSeatsLeft,
-} from '@/lib/landing/funnel-1-content'
+import { CTA_DECLINE, CTA_LABEL, CTA_STEPS, GUARANTEE_SHORT } from '@/lib/landing/funnel-1-content'
 import { cn } from '@/lib/utils'
-import { Countdown } from './countdown'
 
-export function SeatsTimer({ className, label }: { className?: string; label?: string }) {
-  const [seats, setSeats] = useState<number | null>(null)
-
-  useEffect(() => {
-    setSeats(getSeatsLeft())
-  }, [])
-
+export function SeatsTimer({ className }: { className?: string }) {
   return (
-    <div className={cn('flex flex-col items-center gap-3 sm:flex-row sm:gap-5', className)}>
-      <p className="text-base font-bold text-white md:text-lg">
-        {label ?? (
-          <>
-            Restano <span className="marker">{seats ?? '--'} posti</span> questa settimana
-          </>
-        )}
-      </p>
-      <Countdown />
+    <div className={cn('flex w-full max-w-[560px] flex-col items-center gap-3', className)}>
+      {/* GIF animata: next/image non la anima, quindi si usa un <img> classico */}
+      <img
+        src="/images/landing/slots-disponibili.gif"
+        alt=""
+        width={850}
+        height={54}
+        className="h-auto w-full"
+      />
+      <p className="text-base font-bold text-white md:text-lg">Disponibilità dei coach in esaurimento</p>
     </div>
   )
 }
