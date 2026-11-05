@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Check, Play } from 'lucide-react'
 import { LeadForm } from '@/components/funnel/lead-form'
 import { Accreditation } from '@/components/landing/proof-bar'
@@ -59,7 +60,15 @@ export default function Funnel2SqueezePage() {
                 aria-label="Guarda la lezione gratuita: vai al modulo"
                 className="group relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl border-2 border-sky bg-navy transition-transform hover:scale-[1.01]"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,155,255,0.35),transparent_60%)]" />
+                <Image
+                  src="/images/landing/vsl-thumbnail.webp"
+                  alt=""
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 520px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/20" />
                 <span className="relative flex size-16 items-center justify-center rounded-full bg-white text-black transition-transform group-hover:scale-110 sm:size-20">
                   <Play className="size-7 translate-x-0.5 sm:size-8" fill="currentColor" />
                 </span>
