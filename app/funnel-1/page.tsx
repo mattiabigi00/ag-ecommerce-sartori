@@ -20,7 +20,7 @@ export default function Funnel1Page() {
   return (
     <main>
       <Hero />
-      <Accreditation />
+      <Accreditation postIt />
       <Counters />
       <Stories />
       <Letter />

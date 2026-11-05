@@ -1,16 +1,45 @@
+import Image from 'next/image'
 import { METHOD_STEPS } from '@/lib/landing/funnel-1-content'
 import { CtaBlock } from './cta-block'
 import { SectionTitle } from './ui-bits'
 
 function B({ children }: { children: React.ReactNode }) {
-  return <strong className="font-bold text-black">{children}</strong>
+  return <strong className="font-extrabold text-black">{children}</strong>
+}
+
+function LetterImage({
+  src,
+  alt,
+  width,
+  height,
+  className = '',
+}: {
+  src: string
+  alt: string
+  width: number
+  height: number
+  className?: string
+}) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      sizes="(min-width: 768px) 704px, 100vw"
+      className={`mx-auto my-2 h-auto w-full rounded-2xl shadow-md ${className}`}
+    />
+  )
 }
 
 export function Letter() {
   return (
     <section id="lettera" aria-label="Lettera di Alex" className="scroll-mt-4 bg-neutral-50 px-5 py-16 md:py-24">
       <div className="mx-auto flex max-w-[44rem] flex-col gap-14">
-        <div className="flex flex-col gap-6 text-[19px] leading-[1.75] text-ink md:text-xl md:leading-[1.75] [&_p]:text-pretty">
+        <h2 className="type-h1 text-center text-ink">
+          Il giorno in cui ho capito che <span className="marker">il mio tempo non era mio</span>
+        </h2>
+        <div className="flex flex-col gap-6 text-[17px] font-medium leading-[1.7] text-ink md:text-lg md:leading-[1.7] [&_p]:text-pretty">
           <p className="border-l-4 border-sky pl-4 text-base leading-relaxed text-ink-soft md:text-lg">
             Dalla scrivania di Alex Grassi.
             <br />
@@ -19,7 +48,7 @@ export function Letter() {
             La moka gorgoglia, le bimbe dormono.
           </p>
 
-          <p className="text-2xl font-bold leading-snug text-black md:text-[26px]">
+          <p className="text-xl font-extrabold leading-snug text-black md:text-2xl">
             Se sei arrivato qui, probabilmente un lavoro ce l&apos;hai. Ma a fine mese lo stipendio è sempre
             quello.
           </p>
@@ -47,8 +76,15 @@ export function Letter() {
             Poi, a febbraio 2018, mia moglie Martina e nostra figlia Gioia, che aveva undici mesi, fanno un
             incidente in macchina. Gioia entra in coma.
           </p>
+          <LetterImage
+            src="/images/landing/letter-ospedale.webp"
+            alt="Gioia, la figlia di Alex, in ospedale"
+            width={900}
+            height={1600}
+            className="max-w-xs"
+          />
           <p>Io non mi stacco un attimo da loro. Finché squilla il telefono. È il mio capo.</p>
-          <blockquote className="rounded-xl bg-white p-5 text-2xl font-semibold italic leading-snug text-black shadow-sm md:text-[26px]">
+          <blockquote className="rounded-xl bg-white p-5 text-xl font-bold italic leading-snug text-black shadow-sm md:text-2xl">
             &ldquo;Alex, mi dispiace chiedertelo, ma… quando pensi di rientrare?&rdquo;
           </blockquote>
           <p>
@@ -77,6 +113,12 @@ export function Letter() {
             Le giro lo schermo. <B>Da quando eravamo entrati avevo incassato più di 3.000 euro.</B> A fine
             giornata, per la prima volta, ho superato i 10.000 euro di vendite in un giorno.
           </p>
+          <LetterImage
+            src="/images/landing/letter-incassi.webp"
+            alt="Il pannello vendite del negozio di Alex: quasi 10.000 euro e 232 ordini in un giorno"
+            width={1400}
+            height={788}
+          />
           <p>
             Qualche mese dopo mi sono licenziato. <B>Ma non è quello che ti sto chiedendo di fare.</B>
           </p>
@@ -85,9 +127,16 @@ export function Letter() {
             con lo stipendio che c&apos;era ancora e una famiglia da mandare avanti.{' '}
             <B>Ed è esattamente questo che insegno.</B>
           </p>
+          <LetterImage
+            src="/images/landing/letter-martina.webp"
+            alt="Alex e Martina abbracciati al tramonto su una barca"
+            width={540}
+            height={786}
+            className="max-w-xs"
+          />
         </div>
 
-        <div className="flex flex-col gap-6 text-[19px] leading-[1.75] text-ink md:text-xl md:leading-[1.75] [&_p]:text-pretty">
+        <div className="flex flex-col gap-6 text-[17px] font-medium leading-[1.7] text-ink md:text-lg md:leading-[1.7] [&_p]:text-pretty">
           <SectionTitle className="text-ink">
             Il metodo: <span className="marker">3 passi</span>, nell&apos;ordine giusto
           </SectionTitle>
@@ -110,7 +159,7 @@ export function Letter() {
                 >
                   {index + 1}
                 </span>
-                <p className="text-[18px] leading-relaxed md:text-[19px]">
+                <p className="text-[17px] leading-relaxed md:text-lg">
                   <B>{step.title}</B> {step.text}
                 </p>
               </li>
@@ -151,7 +200,7 @@ export function Letter() {
             la sera, senza lasciare il lavoro.
           </p>
           <p>E se non fa per te, te lo diciamo noi.</p>
-          <p className="text-2xl font-bold text-black">
+          <p className="text-xl font-extrabold text-black md:text-2xl">
             Ci vediamo dall&apos;altra parte,
             <br />
             Alex

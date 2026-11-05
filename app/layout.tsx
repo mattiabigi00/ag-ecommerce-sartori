@@ -3,10 +3,11 @@ import type { Metadata, Viewport } from 'next'
 import { MetaPixel } from '@/components/analytics/meta-pixel'
 import { CookieBanner } from '@/components/legal/cookie-banner'
 import { TrackingCapture } from '@/components/funnel/tracking-capture'
-import { Anton, Montserrat } from 'next/font/google'
+import { Anton, Caveat, Montserrat } from 'next/font/google'
 import './globals.css'
 
 const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-anton', display: 'swap' })
+const caveat = Caveat({ subsets: ['latin'], weight: '700', variable: '--font-caveat', display: 'swap' })
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
@@ -48,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="it" className={`light ${anton.variable} ${montserrat.variable}`}>
+    <html lang="it" className={`light ${anton.variable} ${montserrat.variable} ${caveat.variable}`}>
       <body className="font-sans antialiased">
         <TrackingCapture />
         <MetaPixel />

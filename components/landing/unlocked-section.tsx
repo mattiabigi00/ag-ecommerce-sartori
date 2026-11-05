@@ -37,10 +37,7 @@ export function UnlockedSection({
           <p className="rounded-full bg-go px-4 py-1.5 text-sm font-extrabold uppercase tracking-[0.12em] text-black">
             Il passo successivo è aperto
           </p>
-          <h2
-            id="sbloccato-titolo"
-            className="text-balance font-display text-[clamp(1.4rem,4.2vw,2.8rem)] uppercase leading-[1.32]"
-          >
+          <h2 id="sbloccato-titolo" className="type-h2-sm">
             Se pensi che faccia per te, <span className="marker">candidati</span>
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-white/90">
@@ -86,7 +83,7 @@ export function UnlockedSection({
         <div className="mx-auto flex max-w-6xl flex-col gap-10">
           <h2
             id="altre-storie"
-            className="mx-auto max-w-3xl text-balance text-center font-display text-[clamp(1.35rem,3.8vw,2.6rem)] uppercase leading-[1.3] text-ink"
+            className="type-h2-sm mx-auto max-w-3xl text-center text-ink"
           >
             Altre storie di chi è partito con uno stipendio
           </h2>

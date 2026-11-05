@@ -39,6 +39,9 @@ export function UnlockCountdown({ remainingSeconds, className }: Props) {
         <Unit value={minutes} label={minutes === 1 ? 'Minuto' : 'Minuti'} />
         <Unit value={seconds} label={seconds === 1 ? 'Secondo' : 'Secondi'} />
       </div>
+      <p className="text-center text-base font-semibold text-[#14306b] md:text-lg">
+        Il timer avanza solo mentre guardi il video
+      </p>
     </div>
   )
 }

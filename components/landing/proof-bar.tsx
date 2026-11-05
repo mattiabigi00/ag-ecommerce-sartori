@@ -1,9 +1,37 @@
 import Image from 'next/image'
-import { COUNTERS } from '@/lib/landing/funnel-1-content'
+import { cn } from '@/lib/utils'
 
-export function Accreditation() {
+export { Counters } from './counters'
+
+function PostIt({ className }: { className?: string }) {
   return (
-    <section aria-label="Accreditamento" className="border-b border-black/10 bg-white px-5 py-6">
+    <div aria-hidden="true" className={cn('pointer-events-none absolute z-10 select-none', className)}>
+      <p className="rotate-[4deg] bg-[#fff176] px-4 py-2.5 font-hand text-[1.65rem] leading-none text-ink shadow-[0_6px_14px_rgba(0,0,0,0.28)] md:text-3xl">
+        Siamo un ente accreditato!
+      </p>
+      <svg
+        viewBox="0 0 60 50"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="absolute -bottom-11 left-1 h-12 w-14 text-ink"
+      >
+        <path d="M52 4 C 40 6, 18 14, 10 38" />
+        <path d="M2 28 L10 40 L22 32" />
+      </svg>
+    </div>
+  )
+}
+
+export function Accreditation({ postIt = false }: { postIt?: boolean }) {
+  return (
+    <section
+      aria-label="Accreditamento"
+      className={cn('relative border-b border-black/10 bg-white px-5 py-6', postIt && 'pb-6 pt-14 md:pt-10')}
+    >
+      {postIt && <PostIt className="-top-6 right-4 md:right-[10%]" />}
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
         <Image
           src="/images/regione-lazio.webp"
@@ -26,21 +54,23 @@ export function Accreditation() {
   )
 }
 
-export function Counters() {
+/** Versione compatta, da mettere accanto a un modulo. */
+export function AccreditationCard() {
   return (
-    <section aria-label="I numeri" className="bg-sky-pale px-5 py-14 md:py-16">
-      <dl className="mx-auto grid max-w-5xl grid-cols-2 items-start gap-x-6 gap-y-10 text-center lg:grid-cols-4">
-        {COUNTERS.map((counter) => (
-          <div key={counter.value} className="flex flex-col-reverse items-center gap-3">
-            <dd className="max-w-[16rem] text-balance text-base font-medium leading-snug text-ink-soft md:text-lg">
-              {counter.label}
-            </dd>
-            <dt className="whitespace-nowrap font-display text-[clamp(1.7rem,3.4vw,2.7rem)] uppercase leading-none text-ink">
-              {counter.value}
-            </dt>
-          </div>
-        ))}
-      </dl>
-    </section>
+    <div className="relative mt-5">
+      <PostIt className="-top-7 right-3" />
+      <div className="flex items-center gap-4 rounded-2xl bg-white px-4 py-4 pt-6 text-ink">
+        <Image
+          src="/images/regione-lazio.webp"
+          alt="Logo Regione Lazio"
+          width={400}
+          height={110}
+          className="h-11 w-auto shrink-0"
+        />
+        <p className="text-[15px] font-bold leading-snug">
+          Ente accreditato dalla Regione Lazio per le attività di formazione e orientamento
+        </p>
+      </div>
+    </div>
   )
 }

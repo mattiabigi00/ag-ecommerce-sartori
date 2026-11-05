@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Check } from 'lucide-react'
+import { Trophy } from 'lucide-react'
 import type { VideoResult } from '@/lib/landing/funnel-1-content'
 import { Initial } from './ui-bits'
 import { WistiaVideo } from './wistia-video'
@@ -26,12 +26,12 @@ export function VideoResultCard({ video, showAvatar = false }: { video: VideoRes
             ) : (
               <Initial name={video.name} />
             ))}
-          <p className="text-[15px] font-semibold leading-snug text-ink">
+          <p className="text-base font-bold leading-snug text-ink">
             {video.name}, {video.role}
           </p>
         </div>
-        <p className="flex items-start gap-2 rounded-lg bg-sky-pale px-3 py-2.5 text-[15px] font-bold leading-snug text-ink">
-          <Check aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-go-strong" strokeWidth={3} />
+        <p className="flex items-center gap-2.5 rounded-xl bg-black px-4 py-3 text-xl font-extrabold leading-tight text-white">
+          <Trophy aria-hidden="true" className="size-6 shrink-0 text-amber-400" strokeWidth={2.5} />
           {video.result}
         </p>
       </div>

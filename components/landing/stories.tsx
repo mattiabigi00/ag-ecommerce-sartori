@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Check } from 'lucide-react'
+import { Trophy } from 'lucide-react'
 import { STORIES } from '@/lib/landing/funnel-1-content'
 import { Initial, SectionTitle, Underline } from './ui-bits'
 
@@ -9,8 +9,8 @@ export function Stories() {
       <div className="mx-auto flex max-w-6xl flex-col gap-12">
         <SectionTitle className="mx-auto max-w-4xl text-center text-ink">
           <span id="storie-titolo">
-            Avevano un lavoro, come te. Il negozio l&apos;hanno costruito{' '}
-            <Underline>la sera.</Underline>
+            Avevano un lavoro, come te. E hanno costruito un secondo stipendio nel tempo libero, in meno di 90
+            minuti <Underline>la sera.</Underline>
           </span>
         </SectionTitle>
 
@@ -31,15 +31,15 @@ export function Stories() {
               ) : (
                 <Initial name={story.name} className="size-16 text-3xl" />
               )}
-              <h3 className="text-balance text-xl font-extrabold leading-snug text-ink">
+              <h3 className="text-balance text-lg font-extrabold leading-snug text-ink">
                 &ldquo;{story.title}&rdquo;
               </h3>
-              <p className="text-[17px] leading-relaxed text-ink-soft">{story.quote}</p>
-              <p className="text-[15px] font-semibold text-ink">
+              <p className="text-base leading-relaxed text-ink-soft">{story.quote}</p>
+              <p className="text-base font-bold text-ink">
                 {story.name}, {story.role}
               </p>
-              <p className="mt-auto flex items-start gap-2 rounded-lg bg-sky-pale px-3 py-2.5 text-[15px] font-bold leading-snug text-ink">
-                <Check aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-go-strong" strokeWidth={3} />
+              <p className="mt-auto flex items-center gap-2.5 rounded-xl bg-black px-4 py-3 text-xl font-extrabold leading-tight text-white">
+                <Trophy aria-hidden="true" className="size-6 shrink-0 text-amber-400" strokeWidth={2.5} />
                 {story.result}
               </p>
             </article>

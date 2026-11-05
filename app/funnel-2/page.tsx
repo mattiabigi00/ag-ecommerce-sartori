@@ -41,7 +41,7 @@ export default function Funnel2SqueezePage() {
               <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:w-fit sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
                 Lezione gratuita per chi ha un lavoro
               </p>
-              <h1 className="text-balance font-display text-[clamp(1.55rem,6vw,3.9rem)] uppercase leading-[1.32] tracking-[0.005em]">
+              <h1 className="type-h1">
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre ero ancora
                 dipendente
               </h1>

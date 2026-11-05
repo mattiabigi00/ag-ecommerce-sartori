@@ -47,12 +47,7 @@ export function SectionTitle({
   className?: string
 }) {
   return (
-    <h2
-      className={cn(
-        'text-balance font-display text-[clamp(1.5rem,4.8vw,3.4rem)] uppercase leading-[1.32] tracking-[0.005em]',
-        className,
-      )}
-    >
+    <h2 className={cn('type-h2', className)}>
       {children}
     </h2>
   )
