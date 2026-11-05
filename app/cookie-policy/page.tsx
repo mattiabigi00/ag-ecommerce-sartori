@@ -10,7 +10,7 @@ const COOKIES = [
   {
     name: 'ag_cookie_notice',
     provider: 'Questo sito (prima parte)',
-    purpose: 'Ricorda che hai letto l’avviso sui cookie, così non ti viene riproposto.',
+    purpose: 'Registra la scelta fatta nel banner dei cookie (accetta o rifiuta), così non ti viene riproposto.',
     duration: '180 giorni',
     type: 'Tecnico',
   },
