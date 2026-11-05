@@ -59,15 +59,15 @@ export function AccreditationCard() {
   return (
     <div className="relative mt-5">
       <PostIt className="-top-7 right-3" />
-      <div className="flex items-center gap-4 rounded-2xl bg-white px-4 py-4 pt-6 text-ink">
+      <div className="flex flex-col items-center gap-3 rounded-2xl bg-white px-4 py-4 pt-7 text-center text-ink sm:flex-row sm:gap-4 sm:pt-6 sm:text-left">
         <Image
           src="/images/regione-lazio.webp"
           alt="Logo Regione Lazio"
           width={400}
           height={110}
-          className="h-11 w-auto shrink-0"
+          className="h-9 w-auto shrink-0 sm:h-11"
         />
-        <p className="text-[15px] font-bold leading-snug">
+        <p className="min-w-0 text-balance text-sm font-bold leading-snug sm:text-[15px]">
           Ente accreditato dalla Regione Lazio per le attività di formazione e orientamento
         </p>
       </div>

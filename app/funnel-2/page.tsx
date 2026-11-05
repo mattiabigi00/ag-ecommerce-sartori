@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Check, Play } from 'lucide-react'
 import { LeadForm } from '@/components/funnel/lead-form'
-import { Accreditation } from '@/components/landing/proof-bar'
+import { AccreditationCard } from '@/components/landing/proof-bar'
 import { SiteFooter } from '@/components/landing/site-footer'
 import { FUNNELS } from '@/lib/funnels'
 import { SQUEEZE_BULLETS } from '@/lib/landing/unlocked-content'
@@ -16,7 +16,9 @@ export const metadata: Metadata = {
 function LessonBullets() {
   return (
     <>
-      <p className="mb-5 text-base font-extrabold uppercase tracking-[0.1em] text-sky">In questa lezione scopri:</p>
+      <p className="mb-5 text-center text-base font-extrabold uppercase tracking-[0.1em] text-sky lg:text-left">
+        In questa lezione scopri:
+      </p>
       <ul className="flex flex-col gap-4">
         {SQUEEZE_BULLETS.map((bullet) => (
           <li key={bullet} className="flex items-start gap-3 text-[17px] leading-snug md:text-lg">
@@ -37,15 +39,15 @@ export default function Funnel2SqueezePage() {
       <main>
         <section className="bg-black px-5 py-12 text-white md:py-20">
           <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-            <div className="flex min-w-0 flex-col gap-6">
-              <p className="max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:w-fit sm:text-sm sm:tracking-[0.12em] md:text-[15px]">
+            <div className="flex min-w-0 flex-col gap-6 text-center lg:text-left">
+              <p className="mx-auto max-w-full text-balance rounded-full bg-white/10 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.08em] sm:w-fit sm:text-sm sm:tracking-[0.12em] md:text-[15px] lg:mx-0">
                 Lezione gratuita per chi ha un lavoro
               </p>
               <h1 className="type-h1">
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre ero ancora
                 dipendente
               </h1>
-              <p className="max-w-xl text-[15px] leading-relaxed text-white/90 md:text-xl">
+              <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/90 md:text-xl lg:mx-0">
                 Guarda la lezione e scopri il metodo che usano operai, impiegati e corrieri per costruire uno
                 stipendio in più, <strong className="text-white">la sera, in 90 minuti.</strong>
               </p>
@@ -77,11 +79,13 @@ export default function Funnel2SqueezePage() {
                 </span>
               </a>
 
+              <AccreditationCard />
+
               <div id="modulo" className="scroll-mt-6 rounded-3xl bg-white p-6 text-ink shadow-2xl sm:p-8">
-                <h2 className="mb-1 text-balance text-2xl font-extrabold leading-tight">
+                <h2 className="mb-1 text-balance text-center text-2xl font-extrabold leading-tight lg:text-left">
                   Dove ti mando la lezione?
                 </h2>
-                <p className="mb-6 text-[16px] leading-relaxed text-ink-soft">
+                <p className="mb-6 text-center text-[16px] leading-relaxed text-ink-soft lg:text-left">
                   Inserisci i tuoi dati per guardarla subito. Durata: circa 20 minuti.
                 </p>
                 <LeadForm
@@ -99,7 +103,6 @@ export default function Funnel2SqueezePage() {
             </div>
           </div>
         </section>
-        <Accreditation />
       </main>
       <SiteFooter />
     </>
