@@ -1,6 +1,6 @@
 const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "https://alexgrassi.com/privacypolicy" },
-  { label: "Cookie Policy", href: "https://alexgrassi.com/cookiepolicy" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
   { label: "Disclaimer", href: "https://alexgrassi.com/disclaimer" },
   { label: "Termini e Condizioni", href: "https://alexgrassi.com/terminiecondizioni" },
 ]
@@ -16,8 +16,9 @@ export function SiteFooter() {
                 {index > 0 && <span aria-hidden="true">-</span>}
                 <a
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  {...(link.href.startsWith('/')
+                    ? {}
+                    : { target: '_blank', rel: 'noopener noreferrer nofollow' })}
                   className="text-white underline underline-offset-2 hover:text-white/80"
                 >
                   {link.label}
