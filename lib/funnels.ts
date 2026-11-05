@@ -45,6 +45,6 @@ const VIMEO_VSL_URL = 'https://player.vimeo.com/video/1243342782?h=0176d0d698&ba
  */
 export const VSL_SOURCES: Record<FunnelId, { src?: string; embedUrl?: string; poster?: string }> = {
   'funnel-1': { embedUrl: VIMEO_VSL_URL },
-  'funnel-2': { embedUrl: VIMEO_VSL_URL },
+  'funnel-2': { embedUrl: VIMEO_VSL_URL, poster: '/images/landing/vsl-thumbnail.webp' },
   'funnel-3': { embedUrl: VIMEO_VSL_URL },
 }

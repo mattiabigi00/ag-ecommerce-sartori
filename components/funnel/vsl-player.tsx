@@ -45,6 +45,7 @@ export function VslPlayer({
     return (
       <VimeoPlayer
         embedUrl={embedUrl}
+        poster={poster}
         progressKey={progressKey}
         onProgress={onProgress}
         className={className}

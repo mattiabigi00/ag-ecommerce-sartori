@@ -1,10 +1,13 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type Props = {
   embedUrl: string
+  /** Immagine di copertina: il video si carica solo al click e parte in automatico. */
+  poster?: string
   title?: string
   /** Chiave localStorage: il tempo guardato resta salvato se la pagina viene ricaricata. */
   progressKey?: string
@@ -29,17 +32,40 @@ export function isVimeoUrl(url: string) {
  * - gli spostamenti con la barra (avanti o indietro) non aggiungono tempo
  * - a velocita' superiore a 1x non si guadagna piu' tempo reale trascorso
  */
-export function VimeoPlayer({ embedUrl, title = 'Video', progressKey, onProgress, className }: Props) {
+function withAutoplay(url: string) {
+  const parsed = new URL(url)
+  parsed.searchParams.set('autoplay', '1')
+  return parsed.toString()
+}
+
+export function VimeoPlayer({
+  embedUrl,
+  poster,
+  title = 'Video',
+  progressKey,
+  onProgress,
+  className,
+}: Props) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const onProgressRef = useRef(onProgress)
+  const [started, setStarted] = useState(!poster)
 
   useEffect(() => {
     onProgressRef.current = onProgress
   }, [onProgress])
 
   useEffect(() => {
+    let watched = 0
+    try {
+      const saved = progressKey ? Number(localStorage.getItem(progressKey)) : 0
+      if (Number.isFinite(saved) && saved > 0) watched = saved
+    } catch {}
+    if (watched > 0) onProgressRef.current(watched)
+  }, [progressKey])
+
+  useEffect(() => {
     const iframe = iframeRef.current
-    if (!iframe) return
+    if (!started || !iframe) return
 
     let cancelled = false
     let cleanup = () => {}
@@ -50,7 +76,6 @@ export function VimeoPlayer({ embedUrl, title = 'Video', progressKey, onProgress
       if (Number.isFinite(saved) && saved > 0) watched = saved
     } catch {}
     let lastReported = Math.floor(watched)
-    if (watched > 0) onProgressRef.current(watched)
 
     import('@vimeo/player').then(({ default: Player }) => {
       if (cancelled) return
@@ -120,7 +145,9 @@ export function VimeoPlayer({ embedUrl, title = 'Video', progressKey, onProgress
       cancelled = true
       cleanup()
     }
-  }, [progressKey])
+  }, [progressKey, started])
+
+  const iframeSrc = poster ? withAutoplay(embedUrl) : embedUrl
 
   return (
     <div
@@ -129,15 +156,31 @@ export function VimeoPlayer({ embedUrl, title = 'Video', progressKey, onProgress
         className,
       )}
     >
-      <iframe
-        ref={iframeRef}
-        src={embedUrl}
-        title={title}
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-        className="absolute inset-0 size-full"
-      />
+      {started ? (
+        <iframe
+          ref={iframeRef}
+          src={iframeSrc}
+          title={title}
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="absolute inset-0 size-full"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setStarted(true)}
+          aria-label="Guarda il video"
+          className="group absolute inset-0 block size-full cursor-pointer"
+        >
+          <img src={poster} alt="" className="size-full object-cover" />
+          <span className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/10">
+            <span className="flex size-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform group-hover:scale-105 md:size-24">
+              <Play className="ml-1 size-9 fill-current md:size-11" aria-hidden />
+            </span>
+          </span>
+        </button>
+      )}
     </div>
   )
 }
