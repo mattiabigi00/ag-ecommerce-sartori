@@ -188,11 +188,16 @@ html {
 @layer components {
   .type-h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 8.4vw, 4.4rem);
-    line-height: 1.2;
-    letter-spacing: 0.005em;
-    text-transform: uppercase;
-    text-wrap: balance;
+  font-size: clamp(1.65rem, 7.4vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  }
+  @media (min-width: 640px) {
+  .type-h1 {
+  font-size: clamp(2.6rem, 8.4vw, 4.4rem);
+  }
   }
   .type-h2 {
     font-family: var(--font-display);
