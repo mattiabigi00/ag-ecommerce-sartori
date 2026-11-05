@@ -15,7 +15,7 @@ export function Hero() {
           sera: l&apos;ex dipendente Alex Grassi rivela come ci è riuscito
         </h1>
 
-        <p className="max-w-3xl text-pretty text-lg leading-relaxed text-white/90 md:text-[22px] md:leading-relaxed">
+        <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-white/90 md:text-[22px] md:leading-relaxed">
           Nella lezione gratuita ti mostro i <strong className="text-white">3 passi</strong> che mi hanno portato
           da dipendente a oltre <strong className="text-white">5 milioni di euro incassati</strong>, se hai un
           lavoro e 90 minuti la sera.

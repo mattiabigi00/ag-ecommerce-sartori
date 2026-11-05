@@ -45,7 +45,7 @@ export default function Funnel2SqueezePage() {
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre ero ancora
                 dipendente
               </h1>
-              <p className="max-w-xl text-lg leading-relaxed text-white/90 md:text-xl">
+              <p className="max-w-xl text-[15px] leading-relaxed text-white/90 md:text-xl">
                 Guarda la lezione e scopri il metodo che usano operai, impiegati e corrieri per costruire uno
                 stipendio in più, <strong className="text-white">la sera, in 90 minuti.</strong>
               </p>

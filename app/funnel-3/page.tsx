@@ -29,7 +29,7 @@ export default function Funnel3Page() {
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre ero ancora
                 dipendente
               </h1>
-              <p className="max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+              <p className="max-w-2xl text-[15px] leading-relaxed text-white/90 md:text-xl">
                 Guarda la lezione gratuita: ti mostro i <strong className="text-white">3 passi</strong> che
                 trasformano 90 minuti la sera in un secondo stipendio.
               </p>

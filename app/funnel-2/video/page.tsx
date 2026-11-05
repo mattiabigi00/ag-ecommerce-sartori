@@ -45,7 +45,7 @@ export default async function Funnel2VideoPage() {
                 Come ho incassato <span className="marker">10.000 euro in un giorno</span> mentre facevo ancora il
                 dipendente
               </h1>
-              <p className="max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+              <p className="max-w-2xl text-[15px] leading-relaxed text-white/90 md:text-xl">
                 Mettiti comodo, alza il volume e guarda fino in fondo: <strong className="text-white">al minuto 8</strong>{' '}
                 si apre il passo successivo.
               </p>
