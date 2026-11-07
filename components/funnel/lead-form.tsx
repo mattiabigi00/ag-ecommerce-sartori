@@ -80,13 +80,15 @@ export function LeadForm({
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-5">
       {showName && (
-        <Field id={`${step}-name`} label="Nome">
+        <Field id={`${step}-name`} label="Nome e cognome">
           <Input
             id={`${step}-name`}
             name="name"
-            autoComplete="given-name"
-            placeholder="Il tuo nome"
+            autoComplete="name"
+            placeholder="Il tuo nome e cognome"
             required
+            pattern="\S+\s+\S.*"
+            title="Inserisci nome e cognome"
             className={inputClass}
           />
         </Field>

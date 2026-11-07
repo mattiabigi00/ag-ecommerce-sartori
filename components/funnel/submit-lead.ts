@@ -1,5 +1,8 @@
 import type { FunnelId } from '@/lib/funnels'
 
+/** Istante di apertura della pagina: MARF scarta gli invii arrivati entro 3 secondi. */
+const pageLoadedAt = typeof window === 'undefined' ? 0 : Date.now()
+
 export type LeadPayload = {
   funnel: FunnelId
   step: string
@@ -21,6 +24,7 @@ export async function submitLead(payload: LeadPayload): Promise<{ ok: true } | {
         ...payload,
         name: payload.name || undefined,
         website: payload.website || undefined,
+        formStart: pageLoadedAt,
       }),
     })
     if (!response.ok) {
@@ -40,7 +44,7 @@ export async function submitSurveyAnswers(
     const response = await fetch('/api/leads/answers', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ answers }),
+      body: JSON.stringify({ answers, formStart: pageLoadedAt }),
     })
     if (!response.ok) {
       return { ok: false, error: 'Non siamo riusciti a salvare le risposte. Riprova tra un istante.' }
