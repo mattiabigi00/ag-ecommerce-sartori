@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { LeadEvent } from '@/components/analytics/lead-event'
 import { VslGate } from '@/components/funnel/vsl-gate'
 import { SiteFooter } from '@/components/landing/site-footer'
 import { UnlockedSection } from '@/components/landing/unlocked-section'
@@ -30,6 +31,7 @@ export default async function Funnel2VideoPage() {
 
   return (
     <>
+      <LeadEvent />
       <main>
         <VslGate
           funnel="funnel-2"

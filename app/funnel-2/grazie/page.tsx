@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function Funnel2ThankYouPage() {
   return (
     <ThankYou
+      trackLead={false}
       title={
         <>
           Perfetto, <span className="marker">ci siamo quasi</span>
