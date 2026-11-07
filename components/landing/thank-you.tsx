@@ -1,4 +1,5 @@
 import { CheckCircle2, Clock, Phone, Smartphone } from 'lucide-react'
+import { LeadEvent } from '@/components/analytics/lead-event'
 import { SiteFooter } from './site-footer'
 
 const NEXT_STEPS = [
@@ -22,11 +23,14 @@ const NEXT_STEPS = [
 type Props = {
   title: React.ReactNode
   intro: string
+  /** Il funnel 2 fa scattare il Lead nella pagina dopo l'optin, non qui. */
+  trackLead?: boolean
 }
 
-export function ThankYou({ title, intro }: Props) {
+export function ThankYou({ title, intro, trackLead = true }: Props) {
   return (
     <>
+      {trackLead && <LeadEvent />}
       <main className="bg-black px-5 py-14 text-white md:py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
           <span className="flex size-16 items-center justify-center rounded-full bg-go text-black">

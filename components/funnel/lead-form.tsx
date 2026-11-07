@@ -8,7 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import type { FunnelId } from '@/lib/funnels'
-import { readTracking, trackEvent } from '@/lib/tracking'
+import { readTracking } from '@/lib/tracking'
 import { submitLead } from './submit-lead'
 
 type Props = {
@@ -60,7 +60,6 @@ export function LeadForm({
         return
       }
 
-      trackEvent('Lead', { funnel, step })
       if (redirectTo) {
         router.push(redirectTo)
       } else {
