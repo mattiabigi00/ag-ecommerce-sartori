@@ -16,7 +16,7 @@ function PostIt({ className }: { className?: string }) {
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="absolute -bottom-11 left-1 h-12 w-14 text-ink"
+        className="absolute -bottom-9 left-1 h-10 w-12 text-ink"
       >
         <path d="M52 4 C 40 6, 18 14, 10 38" />
         <path d="M2 28 L10 40 L22 32" />
@@ -29,7 +29,7 @@ export function Accreditation({ postIt = false }: { postIt?: boolean }) {
   return (
     <section
       aria-label="Accreditamento"
-      className={cn('relative border-b border-black/10 bg-white px-5 py-6', postIt && 'pb-6 pt-14 md:pt-10')}
+      className={cn('relative border-b border-black/10 bg-white px-5 py-6', postIt && 'pb-6 pt-[4.75rem] md:pt-[5.25rem]')}
     >
       {postIt && <PostIt className="-top-6 right-4 md:right-[10%]" />}
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
@@ -59,7 +59,7 @@ export function AccreditationCard() {
   return (
     <div className="relative mt-5">
       <PostIt className="-top-7 right-3" />
-      <div className="flex flex-col items-center gap-3 rounded-2xl bg-white px-4 py-4 pt-7 text-center text-ink sm:flex-row sm:gap-4 sm:pt-6 sm:text-left">
+      <div className="flex flex-col items-center gap-3 rounded-2xl bg-white px-4 pb-4 pt-[4.25rem] text-center text-ink sm:flex-row sm:gap-4 sm:text-left">
         <Image
           src="/images/regione-lazio.webp"
           alt="Logo Regione Lazio"
