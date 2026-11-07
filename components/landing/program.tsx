@@ -33,6 +33,9 @@ export function Program() {
               </div>
             </li>
           ))}
+          <li className="flex items-center justify-center gap-3 rounded-2xl bg-go px-5 py-5 text-center text-lg font-extrabold uppercase tracking-[0.04em] text-black md:col-span-2 md:text-xl">
+            Quello che nessun altro formatore può offrire
+          </li>
         </ul>
 
         <div className="flex flex-col items-center gap-5 rounded-3xl border-2 border-go p-6 text-center md:p-10">
