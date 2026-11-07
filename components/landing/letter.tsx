@@ -7,28 +7,33 @@ function B({ children }: { children: React.ReactNode }) {
   return <strong className="font-extrabold text-black">{children}</strong>
 }
 
-function LetterImage({
+function PhotoRow({
   src,
   alt,
   width,
   height,
-  className = '',
+  children,
 }: {
   src: string
   alt: string
   width: number
   height: number
-  className?: string
+  children: React.ReactNode
 }) {
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      sizes="(min-width: 768px) 704px, 100vw"
-      className={`mx-auto my-2 h-auto w-full rounded-2xl shadow-md ${className}`}
-    />
+    <div className="flow-root md:grid md:grid-cols-[1fr_15rem] md:items-center md:gap-10">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes="(min-width: 768px) 240px, 144px"
+        className="float-right mb-2 ml-4 h-auto w-36 rounded-2xl shadow-md md:float-none md:order-2 md:m-0 md:w-full"
+      />
+      <div className="[&>p]:mb-6 [&>p:last-child]:mb-0 md:order-1 md:flex md:flex-col md:gap-6 md:[&>p]:mb-0">
+        {children}
+      </div>
+    </div>
   )
 }
 
@@ -72,18 +77,18 @@ export function Letter() {
             posto. E la sera, stanco morto, provavo a costruirmi qualcosa: network marketing, trading, crypto,
             Amazon, self publishing. <B>Sette anni. Zero risultati.</B>
           </p>
-          <p>
-            Poi, a febbraio 2018, mia moglie Martina e nostra figlia Gioia, che aveva undici mesi, fanno un
-            incidente in macchina. Gioia entra in coma.
-          </p>
-          <LetterImage
+          <PhotoRow
             src="/images/landing/letter-ospedale.webp"
             alt="Gioia, la figlia di Alex, in ospedale"
             width={900}
             height={1600}
-            className="max-w-xs"
-          />
-          <p>Io non mi stacco un attimo da loro. Finché squilla il telefono. È il mio capo.</p>
+          >
+            <p>
+              Poi, a febbraio 2018, mia moglie Martina e nostra figlia Gioia, che aveva undici mesi, fanno un
+              incidente in macchina. Gioia entra in coma.
+            </p>
+            <p>Io non mi stacco un attimo da loro. Finché squilla il telefono. È il mio capo.</p>
+          </PhotoRow>
           <blockquote className="rounded-xl bg-white p-5 text-xl font-bold italic leading-snug text-black shadow-sm md:text-2xl">
             &ldquo;Alex, mi dispiace chiedertelo, ma… quando pensi di rientrare?&rdquo;
           </blockquote>
@@ -113,27 +118,21 @@ export function Letter() {
             Le giro lo schermo. <B>Da quando eravamo entrati avevo incassato più di 3.000 euro.</B> A fine
             giornata, per la prima volta, ho superato i 10.000 euro di vendite in un giorno.
           </p>
-          <LetterImage
-            src="/images/landing/letter-incassi.webp"
-            alt="Il pannello vendite del negozio di Alex: quasi 10.000 euro e 232 ordini in un giorno"
-            width={1400}
-            height={788}
-          />
           <p>
             Qualche mese dopo mi sono licenziato. <B>Ma non è quello che ti sto chiedendo di fare.</B>
           </p>
-          <p>
-            Quello che voglio farti vedere è cosa è successo prima: quel negozio l&apos;ho costruito la sera,
-            con lo stipendio che c&apos;era ancora e una famiglia da mandare avanti.{' '}
-            <B>Ed è esattamente questo che insegno.</B>
-          </p>
-          <LetterImage
+          <PhotoRow
             src="/images/landing/letter-martina.webp"
             alt="Alex e Martina abbracciati al tramonto su una barca"
             width={540}
             height={786}
-            className="max-w-xs"
-          />
+          >
+            <p>
+              Quello che voglio farti vedere è cosa è successo prima: quel negozio l&apos;ho costruito la sera,
+              con lo stipendio che c&apos;era ancora e una famiglia da mandare avanti.{' '}
+              <B>Ed è esattamente questo che insegno.</B>
+            </p>
+          </PhotoRow>
         </div>
 
         <div className="flex flex-col gap-6 text-[17px] font-medium leading-[1.7] text-ink md:text-lg md:leading-[1.7] [&_p]:text-pretty">
