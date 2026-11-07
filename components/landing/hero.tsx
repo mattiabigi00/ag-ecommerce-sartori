@@ -11,14 +11,13 @@ export function Hero() {
         </p>
 
         <h1 className="type-h1">
-          <span className="marker">10.000 euro in un giorno</span>, partendo da un negozio online costruito la
-          sera: l&apos;ex dipendente Alex Grassi rivela come ci è riuscito
+          <span className="marker">10.000 euro in un giorno</span>, partendo da un negozio online: l&apos;ex
+          dipendente Alex Grassi rivela come ci è riuscito
         </h1>
 
         <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-white/90 md:text-[22px] md:leading-relaxed">
           Nella lezione gratuita ti mostro i <strong className="text-white">3 passi</strong> che mi hanno portato
-          da dipendente a oltre <strong className="text-white">5 milioni di euro incassati</strong>, se hai un
-          lavoro e 90 minuti la sera.
+          da dipendente a oltre <strong className="text-white">5 milioni di euro incassati</strong>.
         </p>
 
         <HeroVsl {...VSL_SOURCES['funnel-1']} />
@@ -27,7 +26,6 @@ export function Hero() {
           position="hero"
           declineHref="#lettera"
           variant="plain"
-          note="Solo per chi ha già un lavoro e può dedicarci le sue sere. Se cerchi soldi facili, non candidarti: qui si lavora."
         />
       </div>
     </section>
