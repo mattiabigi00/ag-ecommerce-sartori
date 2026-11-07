@@ -1,5 +1,5 @@
-import { Check, ShieldCheck } from 'lucide-react'
-import { PROGRAM_ITEMS } from '@/lib/landing/funnel-1-content'
+import { Check, ShieldCheck, Truck } from 'lucide-react'
+import { PROGRAM_HIGHLIGHT, PROGRAM_ITEMS } from '@/lib/landing/funnel-1-content'
 import { CtaBlock } from './cta-block'
 import { SectionTitle } from './ui-bits'
 
@@ -33,8 +33,17 @@ export function Program() {
               </div>
             </li>
           ))}
-          <li className="flex items-center justify-center gap-3 rounded-2xl bg-go px-5 py-5 text-center text-lg font-extrabold uppercase tracking-[0.04em] text-black md:col-span-2 md:text-xl">
-            Quello che nessun altro formatore può offrire
+          <li className="flex flex-col items-center gap-4 rounded-2xl bg-go p-6 text-center text-black md:col-span-2 md:flex-row md:gap-6 md:p-8 md:text-left">
+            <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-black text-go">
+              <Truck aria-hidden="true" className="size-7" />
+            </span>
+            <div className="flex flex-col gap-1.5">
+              <p className="text-sm font-extrabold uppercase tracking-[0.14em] md:text-[15px]">
+                {PROGRAM_HIGHLIGHT.eyebrow}
+              </p>
+              <h3 className="text-2xl font-extrabold leading-snug md:text-3xl">{PROGRAM_HIGHLIGHT.title}</h3>
+              <p className="text-[16px] font-medium leading-relaxed md:text-lg">{PROGRAM_HIGHLIGHT.text}</p>
+            </div>
           </li>
         </ul>
 

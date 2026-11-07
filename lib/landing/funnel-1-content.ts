@@ -286,13 +286,15 @@ export const PROGRAM_ITEMS = [
   { title: 'La formazione completa', text: 'Registrata, la guardi quando hai tempo, con accesso per sempre.' },
   { title: 'Negozi già pronti', text: 'Fatti dai nostri grafici: li personalizzi invece di perdere settimane a costruirli.' },
   { title: 'Protocollo di Vendita Emotiva', text: 'I testi che usiamo noi per presentare i prodotti, da adattare al tuo.' },
-  {
-    title: 'Magazzino e logistica in Italia',
-    text: 'Quando il tuo prodotto vende, lo spedisci dal nostro magazzino di Firenze e arriva in 24 ore.',
-  },
   { title: 'Le live del lunedì sera', text: 'Con Alex: e-commerce, ma anche soldi, tasse e mentalità.' },
   { title: 'Il gruppo con il tuo coach', text: 'Coach, consulente e team di Alex a portata di messaggio.' },
 ]
+
+export const PROGRAM_HIGHLIGHT = {
+  eyebrow: 'Quello che nessun altro formatore può offrire',
+  title: 'Magazzino e logistica in Italia',
+  text: 'Quando il tuo prodotto vende, lo spedisci dal nostro magazzino di Firenze e arriva in 24 ore.',
+}
 
 export const CALL_OUTCOMES = [
   { title: 'Le tue sere', text: 'Quante sere a settimana ti servono davvero, e come incastrarle con i tuoi turni e la famiglia.' },
