@@ -266,6 +266,8 @@ export function ApplicationForm({
               autoComplete="name"
               placeholder="Il tuo nome e cognome"
               required
+              pattern="\S+\s+\S.*"
+              title="Inserisci nome e cognome"
               className={inputClass}
             />
           </ContactField>

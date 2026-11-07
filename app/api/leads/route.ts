@@ -3,13 +3,19 @@ import { z } from 'zod'
 import { db } from '@/lib/db'
 import { leads } from '@/lib/db/schema'
 import { FUNNEL_IDS, GATE_COOKIE, LEAD_ID_COOKIE, LEAD_NAME_COOKIE } from '@/lib/funnels'
+import { MARF_FORMS, splitName, submitToMarf } from '@/lib/marf'
 
 const stringRecord = z.record(z.string().max(100), z.string().max(2000))
 
 const bodySchema = z.object({
   funnel: z.enum(FUNNEL_IDS),
   step: z.string().min(1).max(50),
-  name: z.string().trim().max(120).optional(),
+  name: z
+    .string()
+    .trim()
+    .max(120)
+    .refine((value) => /\S+\s+\S+/.test(value), 'Servono nome e cognome'),
+  formStart: z.number().int().positive(),
   email: z.string().trim().toLowerCase().email().max(200),
   phone: z
     .string()
@@ -30,19 +36,34 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: 'Dati non validi' }, { status: 400 })
   }
 
-  const { funnel, step, name, email, phone, answers, tracking } = parsed.data
+  const { funnel, step, name, email, phone, answers, tracking, formStart } = parsed.data
+
+  const isOptin = funnel === 'funnel-2' && step === 'squeeze'
+  const marf = await submitToMarf({
+    surveyDefinitionId: isOptin ? MARF_FORMS.optin : MARF_FORMS.survey[funnel],
+    fullName: name,
+    email,
+    phone,
+    answers: isOptin ? undefined : answers,
+    tracking,
+    formStart,
+  })
+
+  if (!marf.ok && marf.invalid) {
+    return NextResponse.json({ ok: false, error: 'Dati non validi' }, { status: 400 })
+  }
 
   const [lead] = await db
     .insert(leads)
     .values({
-    funnel,
-    step,
-    name: name || null,
-    email,
-    phone,
-    answers,
-    tracking,
-    userAgent: request.headers.get('user-agent')?.slice(0, 300) ?? null,
+      funnel,
+      step,
+      name,
+      email,
+      phone,
+      answers,
+      tracking,
+      userAgent: request.headers.get('user-agent')?.slice(0, 300) ?? null,
     })
     .returning({ id: leads.id })
 
@@ -63,15 +84,13 @@ export async function POST(request: Request) {
       path: '/',
       maxAge: 60 * 60 * 24 * 30,
     })
-    if (name) {
-      response.cookies.set(LEAD_NAME_COOKIE, encodeURIComponent(name.slice(0, 60)), {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/',
-        maxAge: 60 * 60 * 24 * 30,
-      })
-    }
+    response.cookies.set(LEAD_NAME_COOKIE, encodeURIComponent(splitName(name).firstName.slice(0, 60)), {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 30,
+    })
   }
 
   return response
