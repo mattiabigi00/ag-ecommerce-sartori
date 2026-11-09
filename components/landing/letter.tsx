@@ -181,7 +181,7 @@ export function Letter() {
           </p>
           <p>
             E dietro non c&apos;è solo un video su internet. C&apos;è un&apos;azienda italiana di oltre 40
-            persone, con i suoi uffici a Roma, dove puoi venirci a trovare, e un magazzino nostro a Firenze che
+            persone, con i suoi uffici a Roma, dove puoi venirci a trovare, e un magazzino nostro a Perugia che
             spedisce ogni giorno. Chi vuole fregarti non apre un magazzino.
           </p>
           <p>
