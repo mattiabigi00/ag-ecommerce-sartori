@@ -14,7 +14,7 @@ export const COUNTERS = [
   { value: '+5 milioni €', label: 'di incassi online' },
   { value: '+300', label: 'persone seguite nel percorso' },
   { value: 'Best seller', label: 'su Amazon con il libro di Alex' },
-  { value: '+40', label: 'persone tra gli uffici di Roma e il magazzino di Firenze' },
+  { value: '+40', label: 'persone tra gli uffici di Roma e il magazzino di Perugia' },
 ]
 
 export type Story = {
@@ -76,7 +76,7 @@ export const METHOD_STEPS = [
   },
   {
     title: 'Le persone.',
-    text: 'Lo fai conoscere con la pubblicità sui social, partendo con 20 € al giorno di pubblicità. E quando il prodotto inizia a vendere, non aspetti settimane che arrivi dalla Cina. Lo spedisci dal nostro magazzino di Firenze e il tuo cliente lo riceve in 24 ore.',
+    text: 'Lo fai conoscere con la pubblicità sui social, partendo con 20 € al giorno di pubblicità. E quando il prodotto inizia a vendere, non aspetti settimane che arrivi dalla Cina. Lo spedisci dal nostro magazzino di Perugia e il tuo cliente lo riceve in 24 ore.',
   },
 ]
 
@@ -293,7 +293,7 @@ export const PROGRAM_ITEMS = [
 export const PROGRAM_HIGHLIGHT = {
   eyebrow: 'Quello che nessun altro formatore può offrire',
   title: 'Magazzino e logistica in Italia',
-  text: 'Quando il tuo prodotto vende, lo spedisci dal nostro magazzino di Firenze e arriva in 24 ore.',
+  text: 'Quando il tuo prodotto vende, lo spedisci dal nostro magazzino di Perugia e arriva in 24 ore.',
 }
 
 export const CALL_OUTCOMES = [
