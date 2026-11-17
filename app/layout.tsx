@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { GoogleTag } from '@/components/analytics/google-tag'
 import { MetaPixel } from '@/components/analytics/meta-pixel'
 import { CookieBanner } from '@/components/legal/cookie-banner'
 import { TrackingCapture } from '@/components/funnel/tracking-capture'
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <TrackingCapture />
         <MetaPixel />
+        <GoogleTag />
         {children}
         <CookieBanner />
         {process.env.NODE_ENV === 'production' && <Analytics />}
