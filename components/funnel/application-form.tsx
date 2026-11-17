@@ -15,7 +15,7 @@ import {
   RECAP_ITEMS,
 } from '@/lib/application-questions'
 import type { FunnelId } from '@/lib/funnels'
-import { readTracking, trackEvent } from '@/lib/tracking'
+import { GOOGLE_CONVERSIONS, readTracking, trackEvent, trackGoogleConversion } from '@/lib/tracking'
 import { submitLead, submitSurveyAnswers } from './submit-lead'
 
 type Props = {
@@ -95,12 +95,17 @@ export function ApplicationForm({
 
   function choose(questionId: string, value: string) {
     setAnswers((existing) => ({ ...existing, [questionId]: value }))
+    if (!sessionStorage.getItem('ag_gads_application_started')) {
+      sessionStorage.setItem('ag_gads_application_started', '1')
+      trackGoogleConversion(GOOGLE_CONVERSIONS.applicationStarted)
+    }
     const from = position
     window.setTimeout(() => goNext(from), 260)
   }
 
   function finish() {
     trackEvent('SubmitApplication', { funnel })
+    trackGoogleConversion(GOOGLE_CONVERSIONS.applicationSubmitted)
     if (redirectTo) {
       router.push(redirectTo)
     } else {

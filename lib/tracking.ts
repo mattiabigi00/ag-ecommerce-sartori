@@ -58,3 +58,30 @@ export function trackCustomEvent(name: string, params?: Record<string, unknown>)
   window.fbq?.('trackCustom', name, params)
   window.gtag?.('event', name, params)
 }
+
+export const GOOGLE_ADS_ID = 'AW-306190168'
+
+/** Etichette di conversione Google Ads (AW-ID/etichetta). */
+export const GOOGLE_CONVERSIONS = {
+  lead: { send_to: `${GOOGLE_ADS_ID}/W8lVCLyO39MZENiugJIB` },
+  applicationStarted: { send_to: `${GOOGLE_ADS_ID}/Ln_CCO-bhbodENiugJIB` },
+  applicationSubmitted: {
+    send_to: `${GOOGLE_ADS_ID}/waeoCN6ahrodENiugJIB`,
+    value: 1.0,
+    currency: 'EUR',
+  },
+} as const
+
+/** Conversione Google Ads. Se gtag non e' ancora pronto, accoda l'evento nel dataLayer. */
+export function trackGoogleConversion(conversion: Record<string, unknown>) {
+  if (typeof window === 'undefined') return
+  const w = window as unknown as { dataLayer?: unknown[] }
+  if (!window.gtag) {
+    w.dataLayer = w.dataLayer || []
+    window.gtag = function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      w.dataLayer!.push(arguments)
+    }
+  }
+  window.gtag('event', 'conversion', conversion)
+}
